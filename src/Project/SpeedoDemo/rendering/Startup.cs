@@ -65,11 +65,11 @@ namespace Speedo.Project.SpeedoDemo.Rendering
                         .SiteName(SitecoreConfiguration.DefaultSiteName)
                         .ApiKey(SitecoreConfiguration.ApiKey);
                 })
-                /*
+                
                  .AddSpeedoHandler("default", Configuration)
                  .WithDiskPersistency()
-                 */
-                .AddHttpHandler("default", SitecoreConfiguration.LayoutServiceUri)
+                
+                //.AddHttpHandler("default", SitecoreConfiguration.LayoutServiceUri)
                 .AsDefaultHandler();
 
             // Register the Sitecore Rendering Engine services.

@@ -1,0 +1,17 @@
+@model Speedo.Feature.ContentComponents.Rendering.Models.HeaderModel
+
+<header id="header">
+    <a href="/" class="logo">@Model.Title.Value</a>
+    <nav>
+        <a href="#menu">@Model.MenuHeader.Value</a>
+    </nav>
+</header>
+<!-- Nav TODO: Convert to rendering -->
+<nav id="menu">
+    <ul class="links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/history">History</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/performancetest">Performance Test</a></li>
+    </ul>
+</nav>

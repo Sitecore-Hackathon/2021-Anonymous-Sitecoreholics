@@ -74,23 +74,58 @@ SharedFields:
           uid="{CF044AD9-0332-407A-ABDE-587214A2C808}">
           <p:d />
         </r>
-        <p
-          uid="{19894597-C9F1-4F8C-BC89-E572B8CCCAEE}"
+        <r
+          uid="{B343725A-3A93-446E-A9C8-3A2CBD3DB489}">
+          <p:d />
+        </r>
+        <r
+          uid="{9476ABF9-FB38-4811-AD99-1972FE21C650}"
           p:before="*"
-          s:key="speedodemo-main"
-          s:md="{8976F69E-D6F8-4A7C-A46C-AB4E556EEECC}" />
+          s:ds="{4EF0B64E-C4EC-4F27-8683-793C3AF0EC3E}"
+          s:id="{E2CDC63D-02DD-4FE6-AC63-016338409F6A}"
+          s:par=""
+          s:ph=""
+          s:ccb="Clear on publish" />
+        <r
+          uid="{1392F9B8-B985-4E8A-9169-44A56187D997}"
+          p:after="r[@uid='{9476ABF9-FB38-4811-AD99-1972FE21C650}']"
+          s:ds="{E14BA083-FA9B-4532-A796-77C6D2F0B346}"
+          s:id="{5589E41F-DB04-4F3C-8F4E-61A6F1A35A90}"
+          s:par=""
+          s:ph=""
+          s:ccb="Clear on publish" />
         <r
           uid="{78D90578-5337-4110-B24B-A2781FFA8930}"
-          p:after="*[1=2]"
+          p:after="r[@uid='{1392F9B8-B985-4E8A-9169-44A56187D997}']"
           s:ds="{A0318FE8-497D-4139-81C8-183E85F4D95F}"
           s:id="{5DBF1B7A-BA44-4D08-8131-D2F83018B28A}"
           s:par=""
           s:ph="speedodemo-main"
           s:ccb="Clear on publish" />
         <r
-          uid="{B343725A-3A93-446E-A9C8-3A2CBD3DB489}">
-          <p:d />
-        </r>
+          uid="{0A507958-EFC8-499F-A997-A86ADF2111F5}"
+          p:after="r[@uid='{78D90578-5337-4110-B24B-A2781FFA8930}']"
+          s:ds="{61FB6ABF-1157-41FA-98F8-7A98B0B9672F}"
+          s:id="{5DBF1B7A-BA44-4D08-8131-D2F83018B28A}"
+          s:par=""
+          s:ph=""
+          s:ccb="Clear on publish" />
+        <r
+          uid="{63FE2D70-7647-4D7F-A09D-42A0D7C5382D}"
+          p:after="r[@uid='{0A507958-EFC8-499F-A997-A86ADF2111F5}']"
+          s:ds="{DA3BF1D0-F980-485E-BBD3-723781ACFF42}"
+          s:id="{5DBF1B7A-BA44-4D08-8131-D2F83018B28A}"
+          s:par=""
+          s:ph=""
+          s:ccb="Clear on publish" />
+        <r
+          uid="{C2E2582A-4EBE-47EA-829A-DDBBFE839760}"
+          p:after="*[1=2]"
+          s:ds="{067D17E5-448A-4B2D-908D-31953236AE11}"
+          s:id="{9CB549E9-9875-4050-AFC2-9920EABFF80A}"
+          s:par=""
+          s:ph=""
+          s:ccb="Clear on publish" />
       </d>
     </r>
 Languages:
@@ -127,12 +162,10 @@ Languages:
       Value: Sitecore Experience Speedos
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "a09258ac-78c2-4a01-b5e5-eedd98202ed1"
+      Value: "7213ae18-d5c9-456a-9941-18b17e51a784"
     - ID: "a60acd61-a6db-4182-8329-c957982cec74"
       Hint: Text
-      Value: |
-        <p style="line-height: 22px;">From a single connected platform that also integrates with other customer-facing platforms, to a single view of the customer in a big data marketing repository, to completely eliminating much of the complexity that has previously held marketers back, the latest version of Sitecore makes customer experience highly achievable. Learn how the latest version of Sitecore gives marketers the complete data, integrated tools, and automation capabilities to engage customers throughout an iterative lifecycle &ndash; the technology foundation absolutely necessary to win customers for life.</p>
-        <p>For further information, please go to the <a href="https://doc.sitecore.net/" target="_blank" title="Sitecore Documentation site">Sitecore Documentation site</a></p>
+      Value: 
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
@@ -142,4 +175,4 @@ Languages:
       Value: 
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210306T164045Z
+      Value: 20210306T200948Z

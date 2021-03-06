@@ -1,0 +1,27 @@
+﻿---
+ID: "067d17e5-448a-4b2d-908d-31953236ae11"
+Parent: "639abc72-e7d5-47b0-bd38-0d7c94f790e0"
+Template: "a7d84cf7-96d9-40d9-9ff2-83b326406fc1"
+Path: /sitecore/content/SpeedoDemo/Shared Content/Footers/Default
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "119eb2a0-dc16-4257-8ddb-47092cd80dab"
+      Hint: Copyright
+      Value: |
+        &copy; Anonymous Sitecoreholics. Design: <a href="https://templated.co">TEMPLATED</a>
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210306T191749Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "43cbb953-e316-4414-8fdc-eb74c329a77e"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210306T200317Z

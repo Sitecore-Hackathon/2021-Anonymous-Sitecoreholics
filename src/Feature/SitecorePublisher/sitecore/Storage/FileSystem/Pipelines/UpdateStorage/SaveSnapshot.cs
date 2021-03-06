@@ -4,28 +4,20 @@ using Sitecore.Configuration;
 using Sitecore.Data.Items;
 using Sitecore.Data.Managers;
 using Sitecore.Diagnostics;
-using Sitecore.LayoutService.Configuration;
-using Sitecore.LayoutService.ItemRendering;
-using Sitecore.LayoutService.Serialization;
 using Sitecore.SecurityModel;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net;
 
 namespace Speedo.Feature.SitecorePublisher.Storage.FileSystem.Pipelines.UpdateStorage
 {
     public class SaveSnapshot
     {
         private readonly ChildListOptions _childListOptions;
-        private readonly ILayoutService _layoutService;
-        private readonly ISerializerService _serializerService;
-        private readonly IConfiguration _layoutServiceConfiguration;
 
-        public SaveSnapshot(ILayoutService layoutService, ISerializerService serializerService, IConfiguration layoutServiceConfiguration)
+        public SaveSnapshot()
         {
-            _layoutService = layoutService;
-            _serializerService = serializerService;
-            _layoutServiceConfiguration = layoutServiceConfiguration;
             _childListOptions = ChildListOptions.SkipSorting | ChildListOptions.IgnoreSecurity | ChildListOptions.AllowReuse;
         }
 
@@ -36,61 +28,72 @@ namespace Speedo.Feature.SitecorePublisher.Storage.FileSystem.Pipelines.UpdateSt
             var watch = Stopwatch.StartNew();
             var sourceDatabase = Factory.GetDatabase(args.SourceDatabaseName);
             var device = sourceDatabase.Resources.Devices["/sitecore/layout/devices/default"] /* TODO: move to config */;
-            var config = _layoutServiceConfiguration.GetNamedConfiguration("default" /* TODO: move to config */);
+            var hostname = "http://cm"; /* TODO: move to config */
+            var endpoint = "/sitecore/api/layout/render/jss"; /* TODO: move to config */
+            var apiKey = "3c22a88c-600a-414b-87ca-2aee4e998fa4"; /* TODO: move to config */
 
-            foreach (var source in args.Sources)
+            WebClient client = new WebClient();
+
+            try
             {
-                var sourceItem = sourceDatabase.Items.GetItem(source.Path);
-
-                if (sourceItem == null)
+                foreach (var source in args.Sources)
                 {
-                    throw new Exception($"Source item '{source.Path}' not found in {args.SourceDatabaseName}.");
-                }
+                    var sourceItem = sourceDatabase.Items.GetItem(source.Path);
 
-                var items = CollectItemsWithLayout(sourceItem, device);
-
-                foreach (var item in items)
-                {
-                    // save all language versions
-                    foreach (var language in item.Languages)
+                    if (sourceItem == null)
                     {
-                        var version = ItemManager.GetItem(item.ID, language, Sitecore.Data.Version.Latest, item.Database, SecurityCheck.Disable);
+                        throw new Exception($"Source item '{source.Path}' not found in {args.SourceDatabaseName}.");
+                    }
 
-                        if (version.Versions.Count == 0)
+                    var items = CollectItemsWithLayout(sourceItem, device);
+
+                    foreach (var item in items)
+                    {
+                        // save all language versions
+                        foreach (var language in item.Languages)
+                        {
+                            var version = ItemManager.GetItem(item.ID, language, Sitecore.Data.Version.Latest, item.Database, SecurityCheck.Disable);
+
+                            if (version.Versions.Count == 0)
+                            {
+                                continue;
+                            }
+
+                            var siteName = "speedo"; // TODO: move to config <source>
+                            var url = $"{hostname}{endpoint}?sc_apikey={apiKey}&sc_site={siteName}&item={version.ID:D}";
+
+                            // TODO: fix file path
+                            var filePath = $"C:\\speedo\\{version.ID:D}.{version.Language.Name}.json";
+
+                            Log.Info($"Saving '{url}' as '{filePath}'...", this);
+
+                            try
+                            {
+                                client.DownloadFile(url, filePath);
+                            }
+                            catch (Exception ex)
+                            {
+                                Log.Error($"Failed to save item '{version.Uri}' as json.", ex, this);
+
+                                continue;
+                            }
+                        }
+
+                        if (!IsMediaWithBlob(item))
                         {
                             continue;
                         }
 
-                        RenderedItem renderedItem;
-
-                        try
-                        {
-                            renderedItem = _layoutService.Render(version, config.RenderingConfiguration);
-                        }
-                        catch (Exception ex)
-                        {
-                            Log.Error($"Failed to render item {version.Uri}.", ex, this);
-
-                            continue;
-                        }
-
-                        var jsonString = _serializerService.Serialize(renderedItem, config.SerializationConfiguration);
-
-                        System.IO.File.WriteAllText($"C:\\speedo\\{version.ID:D}.{version.Language.Name}.json", jsonString, System.Text.Encoding.UTF8);
-
-                        Log.Info($"TEST json: {jsonString}", this);
+                        // TODO: save blob
                     }
-
-                    if (!IsMediaWithBlob(item))
-                    {
-                        continue;
-                    }
-
-                    // TODO: save blob
                 }
+
+                Log.Info($"Saving snapshot took {watch.Elapsed}.", this);
             }
-
-            Log.Info($"Saving snapshot took {watch.Elapsed}.", this);
+            finally
+            {
+                client.Dispose();
+            }
         }
 
         private IEnumerable<Item> CollectItemsWithLayout(Item root, DeviceItem device)

@@ -4,83 +4,104 @@ using Sitecore.Configuration;
 using Sitecore.Data.Items;
 using Sitecore.Data.Managers;
 using Sitecore.Diagnostics;
-using Sitecore.LayoutService.Configuration;
-using Sitecore.LayoutService.ItemRendering;
-using Sitecore.LayoutService.Serialization;
 using Sitecore.SecurityModel;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
+using System.Net;
+using System.Text;
 
 namespace Speedo.Feature.SitecorePublisher.Storage.FileSystem.Pipelines.UpdateStorage
 {
     public class SaveSnapshot
     {
         private readonly ChildListOptions _childListOptions;
-        private readonly ILayoutService _layoutService;
-        private readonly ISerializerService _serializerService;
-        private readonly IConfiguration _layoutServiceConfiguration;
 
-        public SaveSnapshot(ILayoutService layoutService, ISerializerService serializerService, IConfiguration layoutServiceConfiguration)
+        public SaveSnapshot()
         {
-            _layoutService = layoutService;
-            _serializerService = serializerService;
-            _layoutServiceConfiguration = layoutServiceConfiguration;
             _childListOptions = ChildListOptions.SkipSorting | ChildListOptions.IgnoreSecurity | ChildListOptions.AllowReuse;
         }
 
         public void Process(UpdateStorageArgs args)
         {
-            Log.Info($"Saving snapshot...", this);
+            Log.Info($"Speedo: saving snapshot...", this);
 
             var watch = Stopwatch.StartNew();
             var sourceDatabase = Factory.GetDatabase(args.SourceDatabaseName);
-            var device = sourceDatabase.Resources.Devices["/sitecore/layout/devices/default"];
-            var root = sourceDatabase.GetItem("/sitecore/content"/* TODO: move to config and/or args */);
-            var items = CollectItemsWithLayout(root, device);
-            var config = _layoutServiceConfiguration.GetNamedConfiguration("default" /* TODO: move to config */);
+            var device = sourceDatabase.Resources.Devices["/sitecore/layout/devices/default"]; // TODO: move to config
+            var hostname = "http://cm"; // TODO: move to config
+            var endpoint = "/sitecore/api/layout/render/jss"; // TODO: move to config
+            var apiKey = "3c22a88c-600a-414b-87ca-2aee4e998fa4"; // TODO: move to config
+            var fileRootPath = "C:\\speedo"; // TODO: move to config
+            var client = new WebClient();
 
-            foreach (var item in items)
+            try
             {
-                // save all language versions
-                foreach (var language in item.Languages)
+                foreach (var source in args.Sources)
                 {
-                    var version = ItemManager.GetItem(item.ID, language, Sitecore.Data.Version.Latest, item.Database, SecurityCheck.Disable);
+                    var sourceItem = sourceDatabase.Items.GetItem(source.Path);
 
-                    if (version.Versions.Count == 0)
+                    if (sourceItem == null)
                     {
-                        continue;
+                        throw new Exception($"Speedo source item '{source.Path}' not found in database '{args.SourceDatabaseName}'.");
                     }
 
-                    RenderedItem renderedItem;
+                    var items = CollectItemsWithLayout(sourceItem, device);
 
-                    try
+                    foreach (var item in items)
                     {
-                        renderedItem = _layoutService.Render(version, config.RenderingConfiguration);
+                        // save all language versions
+                        foreach (var language in item.Languages)
+                        {
+                            var version = ItemManager.GetItem(item.ID, language, Sitecore.Data.Version.Latest, item.Database, SecurityCheck.Disable);
+
+                            if (version.Versions.Count == 0)
+                            {
+                                continue;
+                            }
+
+                            var url = $"{hostname}{endpoint}?sc_apikey={apiKey}&sc_site={source.SiteName}&item={version.ID:D}&sc_lang={version.Language.Name}";
+                            var filePath = $"{fileRootPath}\\{version.Paths.ContentPath:D}\\{version.Language.Name}.json";
+
+                            Log.Info($"Speedo: saving '{url}' as '{filePath}'...", this);
+
+                            string json;
+
+                            try
+                            {
+                                json = client.DownloadString(url);
+                            }
+                            catch (Exception ex)
+                            {
+                                Log.Error($"Speedo: failed to get json for item '{version.Paths.FullPath}'.", ex, this);
+
+                                continue;
+                            }
+
+                            FileInfo file = new FileInfo(filePath);
+
+                            // if the directory already exists, this method does nothing.
+                            file.Directory.Create();
+
+                            File.WriteAllText(file.FullName, json, Encoding.UTF8);
+                        }
+
+                        if (!IsMediaWithBlob(item))
+                        {
+                            continue;
+                        }
+
+                        // TODO: save blob
                     }
-                    catch (Exception ex)
-                    {
-                        Log.Error($"Failed to render item {version.Uri}.", ex, this);
-
-                        continue;
-                    }
-
-                    var jsonString = _serializerService.Serialize(renderedItem, config.SerializationConfiguration);
-
-                    System.IO.File.WriteAllText($"C:\\speedo\\{version.ID:D}.{version.Language.Name}.json", jsonString, System.Text.Encoding.UTF8);
-
-                    Log.Info($"TEST json: {jsonString}", this);
                 }
-
-                if (!IsMediaWithBlob(item))
-                {
-                    continue;
-                }
-
-                // TODO: save blob
+            }
+            finally
+            {
+                client.Dispose();
             }
 
-            Log.Info($"Saving snapshot took {watch.Elapsed}.", this);
+            Log.Info($"Speedo: saving snapshot took {watch.Elapsed}.", this);
         }
 
         private IEnumerable<Item> CollectItemsWithLayout(Item root, DeviceItem device)
@@ -104,7 +125,7 @@ namespace Speedo.Feature.SitecorePublisher.Storage.FileSystem.Pipelines.UpdateSt
 
         private bool IsMediaWithBlob(Item item)
         {
-            // Item within media library but not a folder...
+            // item within media library but not a folder...
             var isMediaItem = item.Paths.IsMediaItem && item.TemplateID != TemplateIDs.MediaFolder;
 
             if (!isMediaItem)
@@ -112,10 +133,10 @@ namespace Speedo.Feature.SitecorePublisher.Storage.FileSystem.Pipelines.UpdateSt
                 return false;
             }
 
-            // In some cases there can exist items in media library that are not based on any media template type
+            // in some cases there can exist items in media library that are not based on any media template type
             var hasBlobField = item.Fields["Blob"] != null;
 
-            // If item does not have a blob field it is not considered a media item...
+            // if item does not have a blob field it is not considered a media item...
             if (!hasBlobField)
             {
                 return false;

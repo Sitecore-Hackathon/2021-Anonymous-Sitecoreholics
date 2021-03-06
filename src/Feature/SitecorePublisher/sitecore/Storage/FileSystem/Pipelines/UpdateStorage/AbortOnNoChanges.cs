@@ -4,14 +4,11 @@ namespace Speedo.Feature.SitecorePublisher.Storage.FileSystem.Pipelines.UpdateSt
 {
     public class AbortOnNoChanges
     {
-
-        public AbortOnNoChanges()
-        {
-        }
-
         public void Process(UpdateStorageArgs args)
         {
-            Log.Info($"Checking for changes...", this);
+            Log.Info($"Speedo: checking if we can abort...", this);
+
+            // TODO: if no items was published within args.Sources (check root item on publish options), abort pipeline...
         }
     }
 }

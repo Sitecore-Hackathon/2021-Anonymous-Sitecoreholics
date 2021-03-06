@@ -13,7 +13,7 @@
 ⟹ Best use of Headless using JSS or .NET
 
 ## Description
-Our project is called S**pee**do - it's an abbreviation for Sitecore Poor man's Experience Edge. The concept is simple. The CM will persist layout service responses (using ILayoutService) and media items to a given persistent storage on publish and the rendering host will then read layout service content from here instead of calling the CD and media will be served statically from the rendering host using the File Server Option available. The following drawing summarizes the concept!
+Our project is called S**pee**do - it's an abbreviation for Sitecore Poor man's Experience Edge. The concept is simple. The CM will scrape and persist layout service responses and media items to a given persistent storage on publish and the rendering host will then read layout service content from here instead of calling the CD and media will be served statically from the rendering host using the File Server Option available. The following drawing summarizes the concept!
 ![Concept](docs/images/concept.jpg?raw=true "Concept")
 
 ### Benefits
@@ -61,27 +61,44 @@ _Remove this subsection if your entry does not have any prerequisites other than
 ⟹ No further configuration needed
 
 ## Usage instructions
-⟹ Did you want't to use Speedo in your own solution. Here's what you need to know...
+⟹ Did you want't to use S**pee**do in your own solution. Here's what you need to know...
 
 ### Setting the File System
+In the current implementation, we only implemented a File System provider and a stub of the Blob Storage Provider to show the idea from a rendering host perspective. To setup the file system, you need to follow these steps:
+  - Create a folder which is accessible to both CM and rendering host! :-)
+  - For the purpose of local development, add it in the solution directory with a .gitkeep
+  - If you are using Docker, create volumes the bind the S**pee**do folder to the local drives within CM and rendering host
 
 ### Setting up CM
+//TODO: Per
 
 ### Setting up the rendering host for layout service
+To setup the rendering host to use the persisted layout service results, you need to do follow these steps:
+  - Simply replace the existing HttpHandler with the SpeedoHandler with disk persistency in **Startup.cs**. See before and after below
+  - Also, you should add configuration in **appSettings.json**
+   - Section should be called **Speedo**
+   - Add a setting **LayoutServiceContentFilePath** with value such as c:\\speedo\\content (local container path if Docker is used)
+
+AddSitecoreLayoutService() Before
+![Before](docs/images/traditional-setup.jpg?raw=true "Before")
+
+AddSitecoreLayoutService() With S**pee**do
+![After](docs/images/speedo-setup.jpg?raw=true "After")
 
 ### Setting up the rendering host for serving images
+To use static images, you need to configure a File Server in the rendering host. It's done easily in Startup.
+  - In the ctor initialize options with SpeedoConfiguration = configuration.GetSection(SpeedoOptions.Key).Get<SpeedoOptions>();
+  - The values for the options are in **appSettings.json**
+   - Section should be called **Speedo** (the same section as used for the other configuration)
+   - Add a setting **MediaLibraryFilePath** with value such as c:\\speedo\\media\\ (local container path if Docker is used)
+   - Add a setting **MediaLibraryPath** with the value /-/jssmedia. This is the virtual folder that media will be served from
+  - In the Configure method add the File Server with the below lines
 
-Include screenshots where necessary. You can add images to the `./images` folder and then link to them from your documentation:
-
-![Hackathon Logo](docs/images/hackathon.png?raw=true "Hackathon Logo")
-
-You can embed images of different formats too:
-
-![Deal With It](docs/images/deal-with-it.gif?raw=true "Deal With It")
-
-And you can embed external images too:
-
-![Random](https://thiscatdoesnotexist.com/)
+            app.UseFileServer(new FileServerOptions
+            {
+                FileProvider = new PhysicalFileProvider(SpeedoConfiguration.MediaLibraryFilePath),
+                RequestPath = new PathString(SpeedoConfiguration.MediaLibraryPath)
+            });
 
 ## Comments
 ⟹ We have the following remarks

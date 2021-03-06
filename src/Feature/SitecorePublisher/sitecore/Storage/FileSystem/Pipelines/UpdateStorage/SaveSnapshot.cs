@@ -12,6 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Net;
 using System.Text;
 
@@ -21,11 +22,13 @@ namespace Speedo.Feature.SitecorePublisher.Storage.FileSystem.Pipelines.UpdateSt
     {
         private readonly ChildListOptions _childListOptions;
         private readonly WebClient _http;
+        private readonly string _endpoint;
 
         public SaveSnapshot()
         {
             _childListOptions = ChildListOptions.SkipSorting | ChildListOptions.IgnoreSecurity | ChildListOptions.AllowReuse;
             _http = new WebClient();
+            _endpoint = "http://localhost/sitecore/api/layout/render/jss";
         }
 
         public void Process(UpdateStorageArgs args)
@@ -34,11 +37,7 @@ namespace Speedo.Feature.SitecorePublisher.Storage.FileSystem.Pipelines.UpdateSt
 
             var watch = Stopwatch.StartNew();
             var sourceDatabase = Factory.GetDatabase(args.SourceDatabaseName);
-            var device = sourceDatabase.Resources.Devices["/sitecore/layout/devices/default"]; // TODO: move to config
-            var hostname = "http://cm"; // TODO: move to config
-            var endpoint = "/sitecore/api/layout/render/jss"; // TODO: move to config
-            var apiKey = "3c22a88c-600a-414b-87ca-2aee4e998fa4"; // TODO: move to config
-            var fileRootPath = @"C:\speedo"; // TODO: move to config
+            var device = sourceDatabase.Resources.Devices["/sitecore/layout/devices/default"];
 
             foreach (var source in args.Sources)
             {
@@ -50,11 +49,11 @@ namespace Speedo.Feature.SitecorePublisher.Storage.FileSystem.Pipelines.UpdateSt
 
                 if (sourceItem == null)
                 {
-                    throw new Exception($"Speedo source site path '{sitePath}' not found in database '{args.SourceDatabaseName}'.");
+                    throw new Exception($"Speedo source '{sitePath}' not found in database '{args.SourceDatabaseName}'.");
                 }
 
-                var rootUrl = $"{hostname}{endpoint}?sc_apikey={apiKey}&sc_site={source.SiteName}";
-                var itemsFileRootPath = Path.Combine(fileRootPath, source.SiteName, "content");
+                var rootUrl = $"{_endpoint}?sc_apikey={source.ApiKey}&sc_site={source.SiteName}";
+                var itemsFileRootPath = Path.Combine(source.OutputRootPath, "content");
                 var urlBuilderOptions = new ItemUrlBuilderOptions
                 {
                     AddAspxExtension = false,
@@ -64,25 +63,21 @@ namespace Speedo.Feature.SitecorePublisher.Storage.FileSystem.Pipelines.UpdateSt
                     Site = site,
                     LowercaseUrls = true
                 };
-                var items = CollectItems(sourceItem);
+
+                var items = CollectItems(sourceItem).Where(x => x.Visualization.GetLayout(device) != null);
 
                 foreach (var item in items)
                 {
-                    var hasLayout = item.Visualization.GetLayout(device) != null;
-
-                    if (hasLayout)
+                    foreach (var language in item.Languages)
                     {
-                        foreach (var language in item.Languages)
+                        var version = ItemManager.GetItem(item.ID, language, Sitecore.Data.Version.Latest, item.Database, SecurityCheck.Disable);
+
+                        if (version.Versions.Count == 0)
                         {
-                            var version = ItemManager.GetItem(item.ID, language, Sitecore.Data.Version.Latest, item.Database, SecurityCheck.Disable);
-
-                            if (version.Versions.Count == 0)
-                            {
-                                continue;
-                            }
-
-                            SaveItem(version, itemsFileRootPath, rootUrl, urlBuilderOptions);
+                            continue;
                         }
+
+                        SaveItem(version, itemsFileRootPath, rootUrl, urlBuilderOptions);
                     }
                 }
 
@@ -91,19 +86,16 @@ namespace Speedo.Feature.SitecorePublisher.Storage.FileSystem.Pipelines.UpdateSt
 
                 if (sourceItem == null)
                 {
-                    throw new Exception($"Speedo source site path '{source.MediaPath}' not found in database '{args.SourceDatabaseName}'.");
+                    throw new Exception($"Speedo source '{source.MediaPath}' not found in database '{args.SourceDatabaseName}'.");
                 }
 
-                var mediasFileRootPath = Path.Combine(fileRootPath, source.SiteName, "media");
+                var mediasFileRootPath = Path.Combine(source.OutputRootPath, "media");
 
-                items = CollectItems(sourceItem);
+                items = CollectItems(sourceItem).Where(x => IsMediaWithBlob(x));
 
                 foreach (var item in items)
                 {
-                    if (IsMediaWithBlob(item))
-                    {
-                        SaveMedia(item, mediasFileRootPath);
-                    }
+                    SaveMedia(item, mediasFileRootPath);
                 }
             }
 
@@ -164,6 +156,21 @@ namespace Speedo.Feature.SitecorePublisher.Storage.FileSystem.Pipelines.UpdateSt
                 .Replace("/", "\\");
             var filePath = Path.Combine(fileRootPath, path).ToLowerInvariant();
 
+
+
+            FileInfo file = new FileInfo(filePath);
+
+            // if the directory already exists, this method does nothing.
+            file.Directory.Create();
+
+            // don't save again if we already have saved it once
+            if (file.Exists)
+            {
+                Log.Info($"Speedo: skipping save of '{media.InnerItem.Paths.FullPath}' as '{filePath}', file exists...", this);
+
+                return;
+            }
+
             Log.Info($"Speedo: saving '{media.InnerItem.Paths.FullPath}' as '{filePath}'...", this);
 
             using (var blob = media.GetMediaStream())
@@ -174,11 +181,6 @@ namespace Speedo.Feature.SitecorePublisher.Storage.FileSystem.Pipelines.UpdateSt
                 }
                 else
                 {
-                    FileInfo file = new FileInfo(filePath);
-
-                    // if the directory already exists, this method does nothing.
-                    file.Directory.Create();
-
                     using (var fileStream = file.Create())
                     {
                         blob.Seek(0, SeekOrigin.Begin);

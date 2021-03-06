@@ -17,6 +17,7 @@
     <PackageReference Update="Sitecore.Assemblies.Platform" Version="$(PlatformVersion)" />
     <PackageReference Update="Sitecore.Assemblies.SitecoreHeadlessServicesServer" Version="17.0.0" />
     <PackageReference Update="System.Memory" Version="4.5.4" />
+    <PackageReference Update="EnterpriseLibrary.Common" Version="6.0.1304" />
 
     <PackageReference Update="Sitecore.AspNet.ExperienceEditor" Version="$(SitecoreAspNetVersion)" />
     <PackageReference Update="Sitecore.AspNet.Tracking" Version="$(SitecoreAspNetVersion)" />

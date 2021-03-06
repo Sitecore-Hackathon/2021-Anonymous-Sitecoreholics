@@ -1,0 +1,44 @@
+{
+  "namespace": "Project.SpeedoDemo",
+  "items": {
+    "includes": [
+      {
+        "name": "layouts",
+        "path": "/sitecore/layout/Layouts/Project/SpeedoDemo"
+      },
+      {
+        "name": "placeholders",
+        "path": "/sitecore/layout/Placeholder Settings/Project/SpeedoDemo"
+      },
+      {
+        "name": "media",
+        "path": "/sitecore/media library/SpeedoDemo"
+      },
+      {
+        "name": "forms",
+        "path": "/sitecore/Forms/SpeedoDemo"
+      },
+      {
+        "name": "dictionary",
+        "path": "/sitecore/system/Dictionary/SpeedoDemo"
+      },
+      {
+        "name": "templates",
+        "path": "/sitecore/templates/Project/SpeedoDemo"
+      },
+      {
+        "name": "branche-templates",
+        "path": "/sitecore/templates/Branches/Project/SpeedoDemo"
+      },
+      {
+        "name": "content",
+        "path": "/sitecore/content/SpeedoDemo"
+      },
+      {
+        "name": "apikey",
+        "path": "/sitecore/system/Settings/Services/API Keys/SpeedoDemo"
+      }
+    ]
+  }
+}
+

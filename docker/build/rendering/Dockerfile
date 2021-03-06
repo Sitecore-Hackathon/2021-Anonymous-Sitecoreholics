@@ -14,11 +14,10 @@ WORKDIR /solution/src/project
 
 ARG ENTRYPOINT_PROJECT
 
-ENV ENTRYPOINT_PROJECT_FOLDER="${ENTRYPOINT_PROJECT}/rendering"
 ENV DOTNET_WATCH_SUPPRESS_LAUNCH_BROWSER=true
 
 EXPOSE 80
-ENTRYPOINT ["dotnet", "watch", "-v", "--project", ".\\$ENV:ENTRYPOINT_PROJECT_FOLDER", "run", "--no-launch-profile"]
+ENTRYPOINT ["dotnet", "watch", "-v", "--project", ".\\SpeedoDemo\\rendering", "run", "--no-launch-profile"]
 
 FROM ${SOLUTION_IMAGE} as solution
 FROM mcr.microsoft.com/dotnet/core/aspnet:3.1 as release

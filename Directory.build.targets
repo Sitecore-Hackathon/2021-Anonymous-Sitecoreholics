@@ -1,21 +1,19 @@
 <!--
 ***********************************************************************************************
 Directory.Build.targets
-  
-  Solution-wide build targets. 
-  
+
+  Solution-wide build targets.
+
   Simple example of calling classic .net framework VS WebPublish when DeployOnBuild is set to true.
 
   Also see Directory.Build.props and publishsettings.targets for publish profile properties.
-  
+
                                                                       [Anders Laub // Laub+Co]
 ***********************************************************************************************
 -->
 
 <Project>
     <Sdk Name="Microsoft.Build.CentralPackageVersions" Version="2.0.79" />
-
-    <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\WebApplications\Microsoft.WebApplication.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\WebApplications\Microsoft.WebApplication.targets')" />
 
     <Target Name="AutoWebPublish" AfterTargets="Build" Condition="'$(DeployOnBuild)'=='True' AND '$(UsingMicrosoftNETSdk)' != 'True'">
         <PropertyGroup>

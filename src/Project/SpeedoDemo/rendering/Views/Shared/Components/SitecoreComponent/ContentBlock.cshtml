@@ -1,0 +1,9 @@
+@model ContentBlockModel
+
+<div>
+    @* Important: Self-closing tags will not work when rendering text fields with the Sitecore tag helpers. *@
+    <h1 class="contentTitle" asp-for="Title"></h1>
+    <div class="contentDescription">
+        <sc-text asp-for="Text"></sc-text>
+    </div>
+</div>

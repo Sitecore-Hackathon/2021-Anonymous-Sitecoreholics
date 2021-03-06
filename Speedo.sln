@@ -29,9 +29,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Docker", "_Docker", "{7A26
 		docker\docker-compose.yml = docker\docker-compose.yml
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Platform", "Platform", "{167D1F3B-3F14-4A4D-8782-C68411E7DC77}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SpeedoDemo", "SpeedoDemo", "{167D1F3B-3F14-4A4D-8782-C68411E7DC77}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Speedo.Project.Platform", "src\Project\Platform\code\Speedo.Project.Platform.csproj", "{101E1584-E470-480D-82AB-1D4D701DC2A9}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Environment", "Environment", "{8309A347-7109-4048-9F12-BDAD7A94483D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Speedo.Environment.Sitecore", "src\Environment\sitecore\Speedo.Environment.Sitecore.csproj", "{2424E8B4-0111-4306-9603-0D2702EA60C5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Speedo.Project.SpeedoDemo.Sitecore", "src\Project\SpeedoDemo\sitecore\Speedo.Project.SpeedoDemo.Sitecore.csproj", "{AD9A7A76-AAE5-4336-9E8F-8327498845D1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Speedo.Project.SpeedoDemo.Rendering", "src\Project\SpeedoDemo\rendering\Speedo.Project.SpeedoDemo.Rendering.csproj", "{536DC3CC-B857-40B4-8FA3-F7A290CB5BFB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,17 +45,27 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{101E1584-E470-480D-82AB-1D4D701DC2A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{101E1584-E470-480D-82AB-1D4D701DC2A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{101E1584-E470-480D-82AB-1D4D701DC2A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{101E1584-E470-480D-82AB-1D4D701DC2A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2424E8B4-0111-4306-9603-0D2702EA60C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2424E8B4-0111-4306-9603-0D2702EA60C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2424E8B4-0111-4306-9603-0D2702EA60C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2424E8B4-0111-4306-9603-0D2702EA60C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD9A7A76-AAE5-4336-9E8F-8327498845D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD9A7A76-AAE5-4336-9E8F-8327498845D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD9A7A76-AAE5-4336-9E8F-8327498845D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD9A7A76-AAE5-4336-9E8F-8327498845D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{536DC3CC-B857-40B4-8FA3-F7A290CB5BFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{536DC3CC-B857-40B4-8FA3-F7A290CB5BFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{536DC3CC-B857-40B4-8FA3-F7A290CB5BFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{536DC3CC-B857-40B4-8FA3-F7A290CB5BFB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{167D1F3B-3F14-4A4D-8782-C68411E7DC77} = {15D97D61-D597-42EC-B7E9-E9EC8130E630}
-		{101E1584-E470-480D-82AB-1D4D701DC2A9} = {167D1F3B-3F14-4A4D-8782-C68411E7DC77}
+		{2424E8B4-0111-4306-9603-0D2702EA60C5} = {8309A347-7109-4048-9F12-BDAD7A94483D}
+		{AD9A7A76-AAE5-4336-9E8F-8327498845D1} = {167D1F3B-3F14-4A4D-8782-C68411E7DC77}
+		{536DC3CC-B857-40B4-8FA3-F7A290CB5BFB} = {167D1F3B-3F14-4A4D-8782-C68411E7DC77}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {311DA37D-528B-43B2-A99B-E7253F841D46}

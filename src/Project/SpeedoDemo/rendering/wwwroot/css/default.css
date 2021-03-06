@@ -1,0 +1,75 @@
+/*
+    This sample CSS can be removed when implementing your site.
+*/
+
+html, body {
+    box-sizing: border-box;
+    color: #131313;
+    font-family: 'Open Sans', Arial, 'Microsoft YaHei', sans-serif;
+    font-size: 13px;
+    height: 100%;
+    margin: 0px;
+}
+
+button, input, optgroup, select, textarea { font-family: inherit; }
+
+
+a:link {
+    color: #0088cc;
+    text-decoration: none;
+}
+
+a:hover { text-decoration: underline; }
+
+#CenterColumn {
+    background-color: white;
+    background-repeat: no-repeat;
+    background-size: 1170px 402px;
+    margin: auto;
+    max-width: 1170px;
+    min-height: 402px;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: left;
+}
+
+#InnerCenter {
+    height: 700px;
+    margin: auto;
+    position: relative;
+    width: 1150px;
+}
+
+#Header { height: 402px; }
+
+#Footer {
+    clear: both;
+    padding-top: 2px;
+    width: 100%;
+}
+
+#LeftContent { width: 750px; }
+
+#scLogo { margin-top: 20px; }
+
+.contentTitle {
+    font-size: 36px;
+    font-weight: 400;
+    margin-top: 50px;
+}
+
+.divider {
+    background-color: #DCDCDC;
+    border: 0 none;
+    clear: both;
+    display: block;
+    float: none;
+    height: 1px;
+    margin: 50px auto;
+    width: 100%;
+}
+
+.contentDescription {
+    line-height: 22px;
+    padding-right: 20px;
+}

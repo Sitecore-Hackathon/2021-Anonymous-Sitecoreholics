@@ -39,8 +39,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Speedo.Project.SpeedoDemo.S
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Speedo.Project.SpeedoDemo.Rendering", "src\Project\SpeedoDemo\rendering\Speedo.Project.SpeedoDemo.Rendering.csproj", "{536DC3CC-B857-40B4-8FA3-F7A290CB5BFB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContentComponents", "src\Feature\ContentComponents\ContentComponents.csproj", "{4B93E25C-B486-4F2D-B929-8C8E458CF5AB}"
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Speedo.Foundation.RequestHandler.Rendering", "src\Foundation\Speed.Foundation.RequestHandler.Rendering\Speedo.Foundation.RequestHandler.Rendering.csproj", "{2BDA819C-5FBA-45C6-97BD-4BA2BECD7971}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContentComponents", "src\Feature\ContentComponents\ContentComponents.csproj", "{4B93E25C-B486-4F2D-B929-8C8E458CF5AB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Speedo.Feature.SitecorePublisher", "src\Feature\SitecorePublisher\sitecore\Speedo.Feature.SitecorePublisher.csproj", "{6177505A-1C77-4954-8425-3D7D22E74F33}"
 EndProject
@@ -76,14 +75,6 @@ Global
 		{E228D30C-B47F-4ECC-9998-2E6128C80E9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E228D30C-B47F-4ECC-9998-2E6128C80E9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E228D30C-B47F-4ECC-9998-2E6128C80E9A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2BDA819C-5FBA-45C6-97BD-4BA2BECD7971}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2BDA819C-5FBA-45C6-97BD-4BA2BECD7971}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2BDA819C-5FBA-45C6-97BD-4BA2BECD7971}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2BDA819C-5FBA-45C6-97BD-4BA2BECD7971}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6177505A-1C77-4954-8425-3D7D22E74F33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6177505A-1C77-4954-8425-3D7D22E74F33}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6177505A-1C77-4954-8425-3D7D22E74F33}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6177505A-1C77-4954-8425-3D7D22E74F33}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -96,8 +87,6 @@ Global
 		{4B93E25C-B486-4F2D-B929-8C8E458CF5AB} = {17DD5718-6E13-4F2C-9738-B410396D4552}
 		{6177505A-1C77-4954-8425-3D7D22E74F33} = {17DD5718-6E13-4F2C-9738-B410396D4552}
 		{E228D30C-B47F-4ECC-9998-2E6128C80E9A} = {4FDA1DCD-D33E-447E-91C1-F4AE818E2CF0}
-		{2BDA819C-5FBA-45C6-97BD-4BA2BECD7971} = {4FDA1DCD-D33E-447E-91C1-F4AE818E2CF0}
-		{6177505A-1C77-4954-8425-3D7D22E74F33} = {17DD5718-6E13-4F2C-9738-B410396D4552}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {311DA37D-528B-43B2-A99B-E7253F841D46}

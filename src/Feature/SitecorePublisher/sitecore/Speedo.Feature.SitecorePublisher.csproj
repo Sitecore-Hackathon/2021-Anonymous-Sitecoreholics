@@ -6,6 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>
     </ProductVersion>
+    <SitecoreRoleType>platform</SitecoreRoleType>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{6177505A-1C77-4954-8425-3D7D22E74F33}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
@@ -43,6 +44,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="Sitecore.Assemblies.Platform">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
     <PackageReference Include="Sitecore.Kernel" />
     <PackageReference Include="Sitecore.LayoutService" />
     <PackageReference Include="System.Memory" />

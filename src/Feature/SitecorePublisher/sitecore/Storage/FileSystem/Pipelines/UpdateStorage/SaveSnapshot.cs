@@ -6,6 +6,7 @@ using Sitecore.Data.Managers;
 using Sitecore.Diagnostics;
 using Sitecore.Links;
 using Sitecore.Links.UrlBuilders;
+using Sitecore.Resources.Media;
 using Sitecore.SecurityModel;
 using System;
 using System.Collections.Generic;
@@ -157,7 +158,11 @@ namespace Speedo.Feature.SitecorePublisher.Storage.FileSystem.Pipelines.UpdateSt
                 return;
             }
 
-            var filePath = Path.Combine(fileRootPath, $"{media.InnerItem.Paths.FullPath.Replace("/sitecore/media library", "").Replace("/", "\\").TrimStart('\\')}.{media.Extension}").ToLowerInvariant();
+            var path = MediaManager.GetMediaUrl(media, new MediaUrlBuilderOptions { AlwaysIncludeServerUrl = false, AbsolutePath = false, IncludeExtension = true, LowercaseUrls = true })
+                .Replace(Settings.Media.MediaLinkPrefix, "")
+                .Trim('/')
+                .Replace("/", "\\");
+            var filePath = Path.Combine(fileRootPath, path).ToLowerInvariant();
 
             Log.Info($"Speedo: saving '{media.InnerItem.Paths.FullPath}' as '{filePath}'...", this);
 
@@ -165,7 +170,7 @@ namespace Speedo.Feature.SitecorePublisher.Storage.FileSystem.Pipelines.UpdateSt
             {
                 if (blob == null)
                 {
-                    Log.Warn($"Speedo: could not load blob on '{media.InnerItem.Paths.FullPath}'...", this);
+                    Log.Error($"Speedo: could not load blob on '{media.InnerItem.Paths.FullPath}'.", this);
                 }
                 else
                 {

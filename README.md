@@ -66,7 +66,7 @@ _Remove this subsection if your entry does not have any prerequisites other than
 ### Setting the File System
 In the current implementation, we only implemented a File System provider and a stub of the Blob Storage Provider to show the idea from a rendering host perspective. To setup the file system, you need to follow these steps:
   - Create a folder which is accessible to both CM and rendering host! :-)
-  - For the purpose of local development, add it in the solution directory with a .gitkeep: **(/tree/main/docker/data/speedo)**
+  - For the purpose of local development, add it in the solution directory with a .gitkeep: [see here](/tree/main/docker/data/speedo)
   - Add We would add a gitkeep 
 
 ### Setting up CM

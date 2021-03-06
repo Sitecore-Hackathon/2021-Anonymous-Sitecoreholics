@@ -4,6 +4,8 @@ using Sitecore.Configuration;
 using Sitecore.Data.Items;
 using Sitecore.Data.Managers;
 using Sitecore.Diagnostics;
+using Sitecore.Links;
+using Sitecore.Links.UrlBuilders;
 using Sitecore.SecurityModel;
 using System;
 using System.Collections.Generic;
@@ -36,20 +38,64 @@ namespace Speedo.Feature.SitecorePublisher.Storage.FileSystem.Pipelines.UpdateSt
             var endpoint = "/sitecore/api/layout/render/jss"; // TODO: move to config
             var apiKey = "3c22a88c-600a-414b-87ca-2aee4e998fa4"; // TODO: move to config
             var fileRootPath = @"C:\speedo"; // TODO: move to config
-            var itemsFileRootPath = Path.Combine(fileRootPath, "content");
-            var mediasFileRootPath = Path.Combine(fileRootPath, "media");
 
             foreach (var source in args.Sources)
             {
-                var sourceItem = sourceDatabase.Items.GetItem(source.Path);
+                var site = Factory.GetSite(source.SiteName);
+
+                // process content items
+                var sitePath = site.RootPath + site.StartItem;
+                var sourceItem = sourceDatabase.Items.GetItem(sitePath);
 
                 if (sourceItem == null)
                 {
-                    throw new Exception($"Speedo source item '{source.Path}' not found in database '{args.SourceDatabaseName}'.");
+                    throw new Exception($"Speedo source site path '{sitePath}' not found in database '{args.SourceDatabaseName}'.");
                 }
 
                 var rootUrl = $"{hostname}{endpoint}?sc_apikey={apiKey}&sc_site={source.SiteName}";
+                var itemsFileRootPath = Path.Combine(fileRootPath, source.SiteName, "content");
+                var urlBuilderOptions = new ItemUrlBuilderOptions
+                {
+                    AddAspxExtension = false,
+                    AlwaysIncludeServerUrl = false,
+                    EncodeNames = true,
+                    LanguageEmbedding = LanguageEmbedding.Never,
+                    Site = site,
+                    LowercaseUrls = true
+                };
                 var items = CollectItems(sourceItem);
+
+                foreach (var item in items)
+                {
+                    var hasLayout = item.Visualization.GetLayout(device) != null;
+
+                    if (hasLayout)
+                    {
+                        foreach (var language in item.Languages)
+                        {
+                            var version = ItemManager.GetItem(item.ID, language, Sitecore.Data.Version.Latest, item.Database, SecurityCheck.Disable);
+
+                            if (version.Versions.Count == 0)
+                            {
+                                continue;
+                            }
+
+                            SaveItem(version, itemsFileRootPath, rootUrl, urlBuilderOptions);
+                        }
+                    }
+                }
+
+                // process media items
+                sourceItem = sourceDatabase.Items.GetItem(source.MediaPath);
+
+                if (sourceItem == null)
+                {
+                    throw new Exception($"Speedo source site path '{source.MediaPath}' not found in database '{args.SourceDatabaseName}'.");
+                }
+
+                var mediasFileRootPath = Path.Combine(fileRootPath, source.SiteName, "media");
+
+                items = CollectItems(sourceItem);
 
                 foreach (var item in items)
                 {
@@ -57,35 +103,27 @@ namespace Speedo.Feature.SitecorePublisher.Storage.FileSystem.Pipelines.UpdateSt
                     {
                         SaveMedia(item, mediasFileRootPath);
                     }
-                    else
-                    {
-                        var hasLayout = item.Visualization.GetLayout(device) != null;
-
-                        if (hasLayout)
-                        {
-                            foreach (var language in item.Languages)
-                            {
-                                var version = ItemManager.GetItem(item.ID, language, Sitecore.Data.Version.Latest, item.Database, SecurityCheck.Disable);
-
-                                if (version.Versions.Count == 0)
-                                {
-                                    continue;
-                                }
-
-                                SaveItem(version, itemsFileRootPath, rootUrl);
-                            }
-                        }
-                    }
                 }
             }
 
             Log.Info($"Speedo: saving snapshot took {watch.Elapsed}.", this);
         }
 
-        private void SaveItem(Item item, string fileRootPath, string rootUrl)
+        private void SaveItem(Item item, string fileRootPath, string rootUrl, ItemUrlBuilderOptions urlBuilderOptions)
         {
+            var path = LinkManager.GetItemUrl(item, urlBuilderOptions).Trim('/');
+            string filePath;
+
+            if (string.IsNullOrEmpty(path))
+            {
+                filePath = Path.Combine(fileRootPath, $"{item.Language.Name}.json").ToLowerInvariant();
+            }
+            else
+            {
+                filePath = Path.Combine(fileRootPath, $"{path}\\{item.Language.Name}.json").ToLowerInvariant();
+            }
+
             var url = $"{rootUrl}&item={item.ID:D}&sc_lang={item.Language.Name}";
-            var filePath = Path.Combine(fileRootPath, $"{item.Paths.ContentPath.Replace("/", "\\").TrimStart('\\')}\\{item.Language.Name}.json");
 
             Log.Info($"Speedo: saving '{url}' as '{filePath}'...", this);
 
@@ -119,7 +157,7 @@ namespace Speedo.Feature.SitecorePublisher.Storage.FileSystem.Pipelines.UpdateSt
                 return;
             }
 
-            var filePath = Path.Combine(fileRootPath, $"{media.InnerItem.Paths.FullPath.Replace("/sitecore/media library", "").Replace("/", "\\").TrimStart('\\')}.{media.Extension}");
+            var filePath = Path.Combine(fileRootPath, $"{media.InnerItem.Paths.FullPath.Replace("/sitecore/media library", "").Replace("/", "\\").TrimStart('\\')}.{media.Extension}").ToLowerInvariant();
 
             Log.Info($"Speedo: saving '{media.InnerItem.Paths.FullPath}' as '{filePath}'...", this);
 

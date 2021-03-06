@@ -2,13 +2,13 @@
 {
     public class StorageSource
     {
-        public StorageSource(string path, string siteName)
+        public StorageSource(string mediaPath, string siteName)
         {
-            Path = path;
+            MediaPath = mediaPath;
             SiteName = siteName;
         }
 
-        public string Path { get; }
+        public string MediaPath { get; }
         public string SiteName { get; }
     }
 }

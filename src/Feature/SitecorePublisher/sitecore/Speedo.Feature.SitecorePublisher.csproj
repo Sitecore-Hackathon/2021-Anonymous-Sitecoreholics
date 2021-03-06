@@ -67,6 +67,9 @@
     <Compile Include="Events\PublishCompleteHandler.cs" />
     <Compile Include="OutOfHttpContextItemSerializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SpeedoServiceConfigurator.cs" />
+    <Compile Include="SpeedoConfiguration.cs" />
+    <Compile Include="Storage\Configuration\StorageConfiguration.cs" />
     <Compile Include="Storage\FileSystem\Pipelines\UpdateStorage\AbortOnNoChanges.cs" />
     <Compile Include="Storage\FileSystem\Pipelines\UpdateStorage\SaveSnapshot.cs" />
     <Compile Include="Storage\FileSystem\Pipelines\UpdateStorage\UpdateStorageArgs.cs" />
@@ -79,6 +82,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

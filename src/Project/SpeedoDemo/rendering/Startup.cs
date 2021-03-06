@@ -16,6 +16,7 @@ using Speedo.Project.SpeedoDemo.Rendering.Configuration;
 using Speedo.Project.SpeedoDemo.Rendering.Models;
 using System.Collections.Generic;
 using System.Globalization;
+using ContentComponents.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.FileProviders;
 using Speedo.Foundation.RequestHandler.Rendering.Extensions;

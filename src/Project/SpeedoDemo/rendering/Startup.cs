@@ -16,6 +16,7 @@ using Speedo.Project.SpeedoDemo.Rendering.Configuration;
 using Speedo.Project.SpeedoDemo.Rendering.Models;
 using System.Collections.Generic;
 using System.Globalization;
+using ContentComponents.Models;
 
 namespace Speedo.Project.SpeedoDemo.Rendering
 {
@@ -62,7 +63,7 @@ namespace Speedo.Project.SpeedoDemo.Rendering
                 {
                     //Register your components here
                     options
-                        .AddModelBoundView<ContentBlockModel>("ContentBlock")
+                        .AddModelBoundView<BannerModel>("Banner")
                         .AddDefaultPartialView("_ComponentNotFound");
                 })
                 // Includes forwarding of Scheme as X-Forwarded-Proto to the Layout Service, so that

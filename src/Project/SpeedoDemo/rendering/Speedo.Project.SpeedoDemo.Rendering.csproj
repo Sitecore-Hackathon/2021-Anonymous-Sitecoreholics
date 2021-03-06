@@ -26,4 +26,8 @@
         <Folder Include="wwwroot\css\" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\..\..\Feature\ContentComponents\ContentComponents.csproj" />
+    </ItemGroup>
+
 </Project>

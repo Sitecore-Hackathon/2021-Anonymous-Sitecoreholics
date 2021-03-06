@@ -39,6 +39,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Speedo.Project.SpeedoDemo.S
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Speedo.Project.SpeedoDemo.Rendering", "src\Project\SpeedoDemo\rendering\Speedo.Project.SpeedoDemo.Rendering.csproj", "{536DC3CC-B857-40B4-8FA3-F7A290CB5BFB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContentComponents", "src\Feature\ContentComponents\ContentComponents.csproj", "{4B93E25C-B486-4F2D-B929-8C8E458CF5AB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{536DC3CC-B857-40B4-8FA3-F7A290CB5BFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{536DC3CC-B857-40B4-8FA3-F7A290CB5BFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{536DC3CC-B857-40B4-8FA3-F7A290CB5BFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B93E25C-B486-4F2D-B929-8C8E458CF5AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B93E25C-B486-4F2D-B929-8C8E458CF5AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B93E25C-B486-4F2D-B929-8C8E458CF5AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B93E25C-B486-4F2D-B929-8C8E458CF5AB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -66,6 +72,7 @@ Global
 		{2424E8B4-0111-4306-9603-0D2702EA60C5} = {8309A347-7109-4048-9F12-BDAD7A94483D}
 		{AD9A7A76-AAE5-4336-9E8F-8327498845D1} = {167D1F3B-3F14-4A4D-8782-C68411E7DC77}
 		{536DC3CC-B857-40B4-8FA3-F7A290CB5BFB} = {167D1F3B-3F14-4A4D-8782-C68411E7DC77}
+		{4B93E25C-B486-4F2D-B929-8C8E458CF5AB} = {17DD5718-6E13-4F2C-9738-B410396D4552}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {311DA37D-528B-43B2-A99B-E7253F841D46}

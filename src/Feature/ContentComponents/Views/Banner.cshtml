@@ -1,0 +1,46 @@
+@model BannerModel
+
+<div>
+    @* Important: Self-closing tags will not work when rendering text fields with the Sitecore tag helpers. *@
+    <h1 class="contentTitle" asp-for="Title"></h1>
+    <div class="contentDescription">
+        <sc-text asp-for="Text"></sc-text>
+    </div>
+</div>
+
+<article  class="post @Model.Style">
+    <div class="image">
+        <sc-img asp-for="Image" data-position="75% center"></sc-img>
+    </div>
+    <div class="content">
+        <div class="inner">
+            <header>
+                @if (Model.NavigationLink != null)
+                {
+                    <h2>
+                        <sc-link asp-for="NavigationLink">Model.Title</sc-link>
+                    </h2>
+                }
+                else
+                {
+                    <h2 asp-for="Title"></h2>
+                }
+                <p class="info"><sc-text asp-for="Author"></sc-text>
+                </p>
+            </header>
+            <p asp-for="Text"></p>
+            <ul class="actions">
+                @if (Model.NavigationLink != null)
+                {
+                    <li>
+                        <sc-link asp-for="NavigationLink" class="button alt">Model.NavigationLinkText</sc-link>
+                    </li>
+                }
+                else
+                {
+                    <li asp-for="NavigationLinkText"></li>
+                }
+            </ul>
+        </div>
+    </div>
+</article>

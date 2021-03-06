@@ -1,7 +1,7 @@
 ﻿---
 ID: "8714331d-3a24-422d-96a6-8ac97f63d5ae"
 Parent: "0de95ae4-41ab-4d01-9eb0-67441b7c2450"
-Template: "a87a00b1-e6db-45ab-8b54-636fec3b5523"
+Template: "061cba15-5474-4b91-8a06-17903b102b82"
 Path: /sitecore/content/SpeedoDemo
 SharedFields:
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
@@ -17,11 +17,11 @@ Languages:
       Value: 20210306T101459Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "5875af11-354b-428f-b6ca-eb1472c16121"
+      Value: "11b7f267-5838-4aeb-833f-281f8594b0fb"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210306T101551Z
+      Value: 20210306T211358Z

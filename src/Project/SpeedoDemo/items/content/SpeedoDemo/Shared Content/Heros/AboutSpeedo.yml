@@ -4,6 +4,43 @@ Parent: "31f811ed-42fd-4c1a-b01c-c6952dcbb406"
 Template: "e827244b-0027-498e-85f8-51809d987931"
 Path: /sitecore/content/SpeedoDemo/Shared Content/Heros/AboutSpeedo
 Languages:
+- Language: da
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210306T215809Z
+    - ID: "490b224c-76db-4ba7-a1e4-1149414ce657"
+      Hint: NavigationLinkText
+      Value: Om
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\Admin
+    - ID: "54ab855b-9ea3-456a-8712-c6ff2abaa749"
+      Hint: NavigationLink
+      Value: |
+        <link linktype="internal" />
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "d0f4d606-7b31-4d6a-aba2-4fc5234beaad"
+    - ID: "a7d7623e-e1e0-4da9-8557-94e9de9617a7"
+      Hint: Text
+      Value: |
+        <span style="background-color: #f9f9f9; color: #999999;">Dette er et eksempel site med&nbsp; forhumor bygget med</span><br style="color: #999999; background-color: #f9f9f9;" />
+        <span style="background-color: #f9f9f9; color: #999999;">Speedo - Sitecore&nbsp;</span><strong style="color: #999999; background-color: #f9f9f9;">P</strong><span style="background-color: #f9f9f9; color: #999999;">oor man's&nbsp;</span><strong style="color: #999999; background-color: #f9f9f9;">E</strong><span style="background-color: #f9f9f9; color: #999999;">xperience&nbsp;</span><strong style="color: #999999; background-color: #f9f9f9;">E</strong><span style="background-color: #f9f9f9; color: #999999;">dge udviklet af Anonymous Sitecoreholics.</span>
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210306T220014Z
 - Language: en
   Versions:
   - Version: 1

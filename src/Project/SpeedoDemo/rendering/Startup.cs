@@ -136,7 +136,7 @@ namespace Speedo.Project.SpeedoDemo.Rendering
             app.UseRequestLocalization(options =>
             {
                 // If you add languages in Sitecore which this site / Rendering Host should support, add them here.
-                var supportedCultures = new List<CultureInfo> { new CultureInfo(_defaultLanguage) };
+                var supportedCultures = new List<CultureInfo> { new CultureInfo(_defaultLanguage), new CultureInfo("da") };
                 options.DefaultRequestCulture = new RequestCulture(_defaultLanguage, _defaultLanguage);
                 options.SupportedCultures = supportedCultures;
                 options.SupportedUICultures = supportedCultures;

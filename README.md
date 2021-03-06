@@ -86,18 +86,15 @@ AddSitecoreLayoutService() With S**pee**do
 ![After](docs/images/speedo-setup.jpg?raw=true "After")
 
 ### Setting up the rendering host for serving images
+To use static images, you need to configure a File Server in the rendering host. It's done easily in Startup.
+  - In the ctor initialize options with SpeedoConfiguration = configuration.GetSection(SpeedoOptions.Key).Get<SpeedoOptions>();
+  - In the Configure method add the File Server with the below lines
 
-Include screenshots where necessary. You can add images to the `./images` folder and then link to them from your documentation:
-
-![Hackathon Logo](docs/images/hackathon.png?raw=true "Hackathon Logo")
-
-You can embed images of different formats too:
-
-![Deal With It](docs/images/deal-with-it.gif?raw=true "Deal With It")
-
-And you can embed external images too:
-
-![Random](https://thiscatdoesnotexist.com/)
+            app.UseFileServer(new FileServerOptions
+            {
+                FileProvider = new PhysicalFileProvider(SpeedoConfiguration.MediaLibraryFilePath),
+                RequestPath = new PathString(SpeedoConfiguration.MediaLibraryPath)
+            });
 
 ## Comments
 ⟹ We have the following remarks

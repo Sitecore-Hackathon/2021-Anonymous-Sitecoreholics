@@ -23,8 +23,9 @@ namespace Speedo.Feature.SitecorePublisher.Storage.Configuration
             }
 
             var path = XmlUtil.GetAttribute("path", node, string.Empty).ToLowerInvariant();
+            var site = XmlUtil.GetAttribute("site", node, string.Empty).ToLowerInvariant();
 
-            return new StorageSource(path);
+            return new StorageSource(path, site);
         }
     }
 }

@@ -17,10 +17,12 @@ namespace Speedo.Feature.SitecorePublisher.Storage.FileSystem.Pipelines.UpdateSt
     public class SaveSnapshot
     {
         private readonly ChildListOptions _childListOptions;
+        private readonly WebClient _http;
 
         public SaveSnapshot()
         {
             _childListOptions = ChildListOptions.SkipSorting | ChildListOptions.IgnoreSecurity | ChildListOptions.AllowReuse;
+            _http = new WebClient();
         }
 
         public void Process(UpdateStorageArgs args)
@@ -33,94 +35,127 @@ namespace Speedo.Feature.SitecorePublisher.Storage.FileSystem.Pipelines.UpdateSt
             var hostname = "http://cm"; // TODO: move to config
             var endpoint = "/sitecore/api/layout/render/jss"; // TODO: move to config
             var apiKey = "3c22a88c-600a-414b-87ca-2aee4e998fa4"; // TODO: move to config
-            var fileRootPath = "C:\\speedo"; // TODO: move to config
-            var client = new WebClient();
+            var fileRootPath = @"C:\speedo"; // TODO: move to config
+            var itemsFileRootPath = Path.Combine(fileRootPath, "content");
+            var mediasFileRootPath = Path.Combine(fileRootPath, "media");
 
-            try
+            foreach (var source in args.Sources)
             {
-                foreach (var source in args.Sources)
+                var sourceItem = sourceDatabase.Items.GetItem(source.Path);
+
+                if (sourceItem == null)
                 {
-                    var sourceItem = sourceDatabase.Items.GetItem(source.Path);
+                    throw new Exception($"Speedo source item '{source.Path}' not found in database '{args.SourceDatabaseName}'.");
+                }
 
-                    if (sourceItem == null)
+                var rootUrl = $"{hostname}{endpoint}?sc_apikey={apiKey}&sc_site={source.SiteName}";
+                var items = CollectItems(sourceItem);
+
+                foreach (var item in items)
+                {
+                    if (IsMediaWithBlob(item))
                     {
-                        throw new Exception($"Speedo source item '{source.Path}' not found in database '{args.SourceDatabaseName}'.");
+                        SaveMedia(item, mediasFileRootPath);
                     }
-
-                    var items = CollectItemsWithLayout(sourceItem, device);
-
-                    foreach (var item in items)
+                    else
                     {
-                        // save all language versions
-                        foreach (var language in item.Languages)
+                        var hasLayout = item.Visualization.GetLayout(device) != null;
+
+                        if (hasLayout)
                         {
-                            var version = ItemManager.GetItem(item.ID, language, Sitecore.Data.Version.Latest, item.Database, SecurityCheck.Disable);
-
-                            if (version.Versions.Count == 0)
+                            foreach (var language in item.Languages)
                             {
-                                continue;
+                                var version = ItemManager.GetItem(item.ID, language, Sitecore.Data.Version.Latest, item.Database, SecurityCheck.Disable);
+
+                                if (version.Versions.Count == 0)
+                                {
+                                    continue;
+                                }
+
+                                SaveItem(version, itemsFileRootPath, rootUrl);
                             }
-
-                            var url = $"{hostname}{endpoint}?sc_apikey={apiKey}&sc_site={source.SiteName}&item={version.ID:D}&sc_lang={version.Language.Name}";
-                            var filePath = $"{fileRootPath}\\{version.Paths.ContentPath:D}\\{version.Language.Name}.json";
-
-                            Log.Info($"Speedo: saving '{url}' as '{filePath}'...", this);
-
-                            string json;
-
-                            try
-                            {
-                                json = client.DownloadString(url);
-                            }
-                            catch (Exception ex)
-                            {
-                                Log.Error($"Speedo: failed to get json for item '{version.Paths.FullPath}'.", ex, this);
-
-                                continue;
-                            }
-
-                            FileInfo file = new FileInfo(filePath);
-
-                            // if the directory already exists, this method does nothing.
-                            file.Directory.Create();
-
-                            File.WriteAllText(file.FullName, json, Encoding.UTF8);
                         }
-
-                        if (!IsMediaWithBlob(item))
-                        {
-                            continue;
-                        }
-
-                        // TODO: save blob
                     }
                 }
-            }
-            finally
-            {
-                client.Dispose();
             }
 
             Log.Info($"Speedo: saving snapshot took {watch.Elapsed}.", this);
         }
 
-        private IEnumerable<Item> CollectItemsWithLayout(Item root, DeviceItem device)
+        private void SaveItem(Item item, string fileRootPath, string rootUrl)
         {
-            var items = new List<Item>();
+            var url = $"{rootUrl}&item={item.ID:D}&sc_lang={item.Language.Name}";
+            var filePath = Path.Combine(fileRootPath, $"{item.Paths.ContentPath.Replace("/", "\\").TrimStart('\\')}\\{item.Language.Name}.json");
 
-            var hasLayout = root.Visualization.GetLayout(device) != null;
+            Log.Info($"Speedo: saving '{url}' as '{filePath}'...", this);
 
-            if (hasLayout)
+            string json;
+
+            try
             {
-                items.Add(root);
+                json = _http.DownloadString(url);
             }
+            catch (Exception ex)
+            {
+                Log.Error($"Speedo: failed to get json for item '{item.Paths.FullPath}'.", ex, this);
+
+                return;
+            }
+
+            FileInfo file = new FileInfo(filePath);
+
+            // if the directory already exists, this method does nothing.
+            file.Directory.Create();
+
+            File.WriteAllText(file.FullName, json, Encoding.UTF8);
+        }
+
+        private void SaveMedia(MediaItem media, string fileRootPath)
+        {
+            var blobField = media.InnerItem.Fields["Blob"];
+
+            if (string.IsNullOrEmpty(blobField?.Value))
+            {
+                return;
+            }
+
+            var filePath = Path.Combine(fileRootPath, $"{media.InnerItem.Paths.FullPath.Replace("/sitecore/media library", "").Replace("/", "\\").TrimStart('\\')}.{media.Extension}");
+
+            Log.Info($"Speedo: saving '{media.InnerItem.Paths.FullPath}' as '{filePath}'...", this);
+
+            using (var blob = media.GetMediaStream())
+            {
+                if (blob == null)
+                {
+                    Log.Warn($"Speedo: could not load blob on '{media.InnerItem.Paths.FullPath}'...", this);
+                }
+                else
+                {
+                    FileInfo file = new FileInfo(filePath);
+
+                    // if the directory already exists, this method does nothing.
+                    file.Directory.Create();
+
+                    using (var fileStream = file.Create())
+                    {
+                        blob.Seek(0, SeekOrigin.Begin);
+                        blob.CopyTo(fileStream);
+                    }
+                }
+            }
+        }
+
+        private IEnumerable<Item> CollectItems(Item root)
+        {
+            yield return root;
 
             foreach (Item child in root.GetChildren(_childListOptions))
             {
-                items.AddRange(CollectItemsWithLayout(child, device));
+                foreach (Item sub in CollectItems(child))
+                {
+                    yield return sub;
+                }
             }
-
-            return items;
         }
 
         private bool IsMediaWithBlob(Item item)

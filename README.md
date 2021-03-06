@@ -13,13 +13,20 @@
 ⟹ Best use of Headless using JSS or .NET
 
 ## Description
-S**pee**do
-
-  - Module Purpose
-  - What problem was solved (if any)
-    - How does this module solve it
-
+Our project is called S**pee**do - it's an abbreviation for Sitecore Poor man's Experience Edge. The concept is simple. The CM will persist layout service responses (using ILayoutService) and media items to a given persistent storage on publish and the rendering host will then read layout service content from here instead of calling the CD and media will be served statically from the rendering host using the File Server Option available. The following drawing summarizes the concept!
 ![Concept](docs/images/concept.jpg?raw=true "Concept")
+
+### Benefits
+  - See it as a cache without actually using memory cache. It's blazing fast and reacts as soon as a file is modified
+  - Many runtimes can share the same persisted content
+  - You can easily geo replicate the persisted content
+  - It's easily usable in AKS with file shares or persistent volumes but could also easily be extended with Blob Storage, S3 buckets or other options
+  - You can cut out the CD role entirely
+
+### Limitations
+  - The concept works for XM only
+  - Images cannot be cropped at this point in time
+
 
 ## Video link
 ⟹ Provide a video highlighing your Hackathon module submission and provide a link to the video. You can use any video hosting, file share or even upload the video to this repository. _Just remember to update the link below_

@@ -1,3 +1,9 @@
+# NuGet cache for Sitecore CLI
+.sitecore/package-cache/
+
+# Ephemeral index caches used by serialization, do not commit
+.scindex
+
 # may contain OAuth secrets, do not commit
 .sitecore/user.json
 

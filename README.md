@@ -80,23 +80,10 @@ To setup the rendering host to use the persisted layout service results, you nee
    - Add a setting **LayoutServiceContentFilePath** with value such as c:\\speedo\\content (local container path if Docker is used)
 
 AddSitecoreLayoutService() Before
-            // Register the Sitecore Layout Service Client, which will be invoked by the Sitecore Rendering Engine.
-            services.AddSitecoreLayoutService()
-                // Set default parameters for the Layout Service Client from our bound configuration object.
-                .WithDefaultRequestOptions(request =>
-                {
-                    request
-                        .SiteName(SitecoreConfiguration.DefaultSiteName)
-                        .ApiKey(SitecoreConfiguration.ApiKey);
-                })
-                .AddHttpHandler("default", SitecoreConfiguration.LayoutServiceUri)
-                .AsDefaultHandler();
+![Before](docs/images/traditional-setup.jpg?raw=true "Before")
 
 AddSitecoreLayoutService() With S**pee**do
-            services.AddSitecoreLayoutService()
-                .AddSpeedoHandler("default", Configuration)
-                .WithDiskPersistency()
-                .AsDefaultHandler();
+![After](docs/images/speedo-setup.jpg?raw=true "After")
 
 ### Setting up the rendering host for serving images
 To use static images, you need to configure a File Server in the rendering host. It's done easily in Startup.

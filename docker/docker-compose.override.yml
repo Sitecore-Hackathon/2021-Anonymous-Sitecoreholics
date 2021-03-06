@@ -34,6 +34,7 @@ services:
         ENTRYPOINT_PROJECT: ${RENDERING_ENTRYPOINT_PROJECT}
     volumes:
       - ..\:C:\solution
+      - ${LOCAL_DATA_PATH}\speedo:C:\speedo
     environment:
       ASPNETCORE_ENVIRONMENT: "Development"
       ASPNETCORE_URLS: "http://*:80"
@@ -102,6 +103,7 @@ services:
       - ${LOCAL_DEPLOY_PATH}\platform:C:\deploy
       - ${LOCAL_DATA_PATH}\cm:C:\inetpub\wwwroot\App_Data\logs
       - ${HOST_LICENSE_FOLDER}:c:\license
+      - ${LOCAL_DATA_PATH}\speedo:C:\speedo
     environment:
       SITECORE_LICENSE_LOCATION: c:\license\license.xml
     entrypoint: powershell -Command "& C:\tools\entrypoints\iis\Development.ps1"

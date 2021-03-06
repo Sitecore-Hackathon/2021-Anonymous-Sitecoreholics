@@ -149,11 +149,11 @@ namespace Speedo.Project.SpeedoDemo.Rendering
             app.UseSitecoreVisitorIdentification();
 
             // Configure app to use Speedo for static assets
-            /*app.UseFileServer(new FileServerOptions
+            app.UseFileServer(new FileServerOptions
             {
                 FileProvider = new PhysicalFileProvider(SpeedoConfiguration.MediaLibraryFilePath),
                 RequestPath = new PathString(SpeedoConfiguration.MediaLibraryPath)
-            });*/
+            });
 
             app.UseEndpoints(endpoints =>
             {

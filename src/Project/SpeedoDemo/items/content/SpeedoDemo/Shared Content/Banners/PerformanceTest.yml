@@ -31,7 +31,7 @@ Languages:
       Value: Anonymous Sitecoreholics
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "a2a6ca02-5281-4f21-8de2-0007cada21e5"
+      Value: "410fcabf-2b51-449f-86a4-a304ebd3d4d0"
     - ID: "8f302545-a18c-49ff-aa5b-009a63c76de8"
       Hint: Title
       Value: Performancetest
@@ -42,13 +42,13 @@ Languages:
     - ID: "c07e6424-1663-4f7e-ab9d-618627df373a"
       Hint: Image
       Value: |
-        <image mediaid="{A679FF8A-6CDA-4E05-B195-849ABC3C71BB}" />
+        <image mediaid="{20EE4EB8-A19A-4167-843C-FCFC19B969FB}" />
     - ID: "d657be3b-952a-431f-b681-ef539477b2d5"
       Hint: Text
       Value: "Vi skal lige have speedo til at køre med en masse items. Yeah! Asbjørn Riis!"
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210306T215309Z
+      Value: 20210306T223424Z
     - ID: "edde273a-a012-4501-803e-b1d82234c6c4"
       Hint: NavigationLinkText
       Value: Start Test
@@ -71,7 +71,7 @@ Languages:
       Value: Anonymous Sitecoreholics
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "1a68f9f1-7f7e-4259-b7aa-c86f2139cfaa"
+      Value: "658b168b-e1a4-4920-89cd-81debdef567b"
     - ID: "8f302545-a18c-49ff-aa5b-009a63c76de8"
       Hint: Title
       Value: Performance Test
@@ -82,13 +82,13 @@ Languages:
     - ID: "c07e6424-1663-4f7e-ab9d-618627df373a"
       Hint: Image
       Value: |
-        <image mediaid="{A679FF8A-6CDA-4E05-B195-849ABC3C71BB}" />
+        <image mediaid="{20EE4EB8-A19A-4167-843C-FCFC19B969FB}" />
     - ID: "d657be3b-952a-431f-b681-ef539477b2d5"
       Hint: Text
       Value: Pushing Speedo. The page you enter has a 100 banner renderings, rendering a joke&nbsp;&nbsp;
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210306T200653Z
+      Value: 20210306T223259Z
     - ID: "edde273a-a012-4501-803e-b1d82234c6c4"
       Hint: NavigationLinkText
       Value: Start Test

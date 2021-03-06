@@ -28,19 +28,19 @@ Languages:
         sitecore\Admin
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "d0f4d606-7b31-4d6a-aba2-4fc5234beaad"
+      Value: "dcbfc5d6-7fea-47e2-9f4c-9f8ec8e4ee0f"
     - ID: "a7d7623e-e1e0-4da9-8557-94e9de9617a7"
       Hint: Text
       Value: |
-        <span style="background-color: #f9f9f9; color: #999999;">Dette er et eksempel site med&nbsp; forhumor bygget med</span><br style="color: #999999; background-color: #f9f9f9;" />
-        <span style="background-color: #f9f9f9; color: #999999;">Speedo - Sitecore&nbsp;</span><strong style="color: #999999; background-color: #f9f9f9;">P</strong><span style="background-color: #f9f9f9; color: #999999;">oor man's&nbsp;</span><strong style="color: #999999; background-color: #f9f9f9;">E</strong><span style="background-color: #f9f9f9; color: #999999;">xperience&nbsp;</span><strong style="color: #999999; background-color: #f9f9f9;">E</strong><span style="background-color: #f9f9f9; color: #999999;">dge udviklet af Anonymous Sitecoreholics.</span>
+        Dette er et eksempel med og om farhumor bygget med<br />
+        Speedo - Sitecore <strong>P</strong>oor man's <strong>E</strong>xperience <strong>E</strong>dge by&nbsp;Anonymous Sitecoreholics.
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210306T220014Z
+      Value: 20210306T224651Z
 - Language: en
   Versions:
   - Version: 1

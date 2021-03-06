@@ -49,7 +49,6 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Sitecore.Kernel" />
-    <PackageReference Include="Sitecore.LayoutService" />
     <PackageReference Include="System.Memory" />
     <PackageReference Include="EnterpriseLibrary.Common" />
   </ItemGroup>
@@ -71,7 +70,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Events\PublishCompleteHandler.cs" />
-    <Compile Include="OutOfHttpContextItemSerializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SpeedoConfiguration.cs" />
     <Compile Include="SpeedoServiceConfigurator.cs" />

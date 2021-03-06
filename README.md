@@ -61,17 +61,29 @@ _Remove this subsection if your entry does not have any prerequisites other than
 ⟹ No further configuration needed
 
 ## Usage instructions
-⟹ Did you want't to use Speedo in your own solution. Here's what you need to know...
+⟹ Did you want't to use S**pee**do in your own solution. Here's what you need to know...
 
 ### Setting the File System
 In the current implementation, we only implemented a File System provider and a stub of the Blob Storage Provider to show the idea from a rendering host perspective. To setup the file system, you need to follow these steps:
   - Create a folder which is accessible to both CM and rendering host! :-)
-  - For the purpose of local development, add it in the solution directory with a .gitkeep: **(/tree/main/docker/data/speedo)**
-  - Add We would add a gitkeep 
+  - For the purpose of local development, add it in the solution directory with a .gitkeep
+  - If you are using Docker, create volumes the bind the S**pee**do folder to the local drives within CM and rendering host
 
 ### Setting up CM
+//TODO: Per
 
 ### Setting up the rendering host for layout service
+To setup the rendering host to use the persisted layout service results, you need to do follow these steps:
+  - Simply replace the existing HttpHandler with the SpeedoHandler with disk persistency in **Startup.cs**. See before and after below
+  - Also, you should add configuration in **appSettings.json**
+   - Section should be called **Speedo**
+   - Add setting **LayoutServiceContentFilePath** with value such as c:\\speedo\\media\\ (local container path if Docker is used)
+
+AddSitecoreLayoutService() Before
+![Before](docs/images/traditional-setup.jpg?raw=true "Before")
+
+AddSitecoreLayoutService() With S**pee**do
+![After](docs/images/speedo-setup.jpg?raw=true "After")
 
 ### Setting up the rendering host for serving images
 

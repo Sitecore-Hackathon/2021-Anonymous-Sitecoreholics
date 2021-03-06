@@ -2,10 +2,12 @@
 using Sitecore.Collections;
 using Sitecore.Configuration;
 using Sitecore.Data.Items;
+using Sitecore.Data.Managers;
 using Sitecore.Diagnostics;
 using Sitecore.LayoutService.Configuration;
 using Sitecore.LayoutService.ItemRendering;
 using Sitecore.LayoutService.Serialization;
+using Sitecore.SecurityModel;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -40,22 +42,42 @@ namespace Speedo.Feature.SitecorePublisher.Storage.FileSystem.Pipelines.UpdateSt
 
             foreach (var item in items)
             {
-                RenderedItem renderedItem;
-
-                try
+                // save all language versions
+                foreach (var language in item.Languages)
                 {
-                    renderedItem = _layoutService.Render(item, config.RenderingConfiguration);
+                    var version = ItemManager.GetItem(item.ID, language, Sitecore.Data.Version.Latest, item.Database, SecurityCheck.Disable);
+
+                    if (version.Versions.Count == 0)
+                    {
+                        continue;
+                    }
+
+                    RenderedItem renderedItem;
+
+                    try
+                    {
+                        renderedItem = _layoutService.Render(version, config.RenderingConfiguration);
+                    }
+                    catch (Exception ex)
+                    {
+                        Log.Error($"Failed to render item {version.Uri}.", ex, this);
+
+                        continue;
+                    }
+
+                    var jsonString = _serializerService.Serialize(renderedItem, config.SerializationConfiguration);
+
+                    System.IO.File.WriteAllText($"C:\\speedo\\{version.ID:D}.{version.Language.Name}.json", jsonString, System.Text.Encoding.UTF8);
+
+                    Log.Info($"TEST json: {jsonString}", this);
                 }
-                catch (Exception ex)
-                {
-                    Log.Error($"Failed to render item {item.Uri}.", ex, this);
 
+                if (!IsMediaWithBlob(item))
+                {
                     continue;
                 }
 
-                var jsonString = _serializerService.Serialize(renderedItem, config.SerializationConfiguration);
-
-                Log.Info($"TEST json: {jsonString}", this);
+                // TODO: save blob
             }
 
             Log.Info($"Saving snapshot took {watch.Elapsed}.", this);

@@ -46,6 +46,7 @@
     <PackageReference Include="Sitecore.Kernel" />
     <PackageReference Include="Sitecore.LayoutService" />
     <PackageReference Include="System.Memory" />
+    <PackageReference Include="EnterpriseLibrary.Common" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
@@ -67,8 +68,8 @@
     <Compile Include="Events\PublishCompleteHandler.cs" />
     <Compile Include="OutOfHttpContextItemSerializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SpeedoServiceConfigurator.cs" />
     <Compile Include="SpeedoConfiguration.cs" />
+    <Compile Include="SpeedoServiceConfigurator.cs" />
     <Compile Include="Storage\Configuration\StorageConfiguration.cs" />
     <Compile Include="Storage\FileSystem\Pipelines\UpdateStorage\AbortOnNoChanges.cs" />
     <Compile Include="Storage\FileSystem\Pipelines\UpdateStorage\SaveSnapshot.cs" />

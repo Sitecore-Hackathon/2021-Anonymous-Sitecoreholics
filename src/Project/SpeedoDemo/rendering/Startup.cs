@@ -17,6 +17,11 @@ using Speedo.Project.SpeedoDemo.Rendering.Models;
 using System.Collections.Generic;
 using System.Globalization;
 using ContentComponents.Models;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.FileProviders;
+using Speedo.Foundation.RequestHandler.Rendering.Extensions;
+using Speedo.Foundation.RequestHandler.Rendering.Options;
+
 
 namespace Speedo.Project.SpeedoDemo.Rendering
 {
@@ -29,10 +34,16 @@ namespace Speedo.Project.SpeedoDemo.Rendering
             // Example of using ASP.NET Core configuration binding for various Sitecore Rendering Engine settings.
             // Values can originate in appsettings.json, from environment variables, and more.
             // https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/?view=aspnetcore-3.1
-            Configuration = configuration.GetSection(SitecoreOptions.Key).Get<SitecoreOptions>();
+            SitecoreConfiguration = configuration.GetSection(SitecoreOptions.Key).Get<SitecoreOptions>();
+            SpeedoConfiguration = configuration.GetSection(SpeedoOptions.Key).Get<SpeedoOptions>();
+            Configuration = configuration;
+
         }
 
-        private SitecoreOptions Configuration { get; }
+        private SpeedoOptions SpeedoConfiguration { get; set; }
+
+        private SitecoreOptions SitecoreConfiguration { get; }
+        private IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
@@ -52,10 +63,14 @@ namespace Speedo.Project.SpeedoDemo.Rendering
                 .WithDefaultRequestOptions(request =>
                 {
                     request
-                        .SiteName(Configuration.DefaultSiteName)
-                        .ApiKey(Configuration.ApiKey);
+                        .SiteName(SitecoreConfiguration.DefaultSiteName)
+                        .ApiKey(SitecoreConfiguration.ApiKey);
                 })
-                .AddHttpHandler("default", Configuration.LayoutServiceUri)
+                /*
+                 .AddSpeedoHandler("default", Configuration)
+                 .WithDiskPersistency()
+                 */
+                .AddHttpHandler("default", SitecoreConfiguration.LayoutServiceUri)
                 .AsDefaultHandler();
 
             // Register the Sitecore Rendering Engine services.
@@ -81,7 +96,7 @@ namespace Speedo.Project.SpeedoDemo.Rendering
                 // Usually the SitecoreInstanceUri is same host as the Layout Service, but it can be any Sitecore CD/CM
                 // instance which shares same AspNet session with Layout Service. This address should be accessible
                 // from the Rendering Host and will be used to proxy robot detection scripts.
-                options.SitecoreInstanceUri = Configuration.InstanceUri;
+                options.SitecoreInstanceUri = SitecoreConfiguration.InstanceUri;
             });
         }
 
@@ -105,7 +120,7 @@ namespace Speedo.Project.SpeedoDemo.Rendering
 
             // The Experience Editor endpoint should not be enabled in production DMZ.
             // See the SDK documentation for details.
-            if (Configuration.EnableExperienceEditor)
+            if (SitecoreConfiguration.EnableExperienceEditor)
             {
                 // Enable the Sitecore Experience Editor POST endpoint.
                 app.UseSitecoreExperienceEditor();
@@ -130,6 +145,13 @@ namespace Speedo.Project.SpeedoDemo.Rendering
 
             // Enable proxying of Sitecore robot detection scripts
             app.UseSitecoreVisitorIdentification();
+
+            // Configure app to use Speedo for static assets
+            app.UseFileServer(new FileServerOptions
+            {
+                FileProvider = new PhysicalFileProvider(SpeedoConfiguration.MediaLibraryFilePath),
+                RequestPath = new PathString(SpeedoConfiguration.MediaLibraryPath)
+            });
 
             app.UseEndpoints(endpoints =>
             {

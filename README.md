@@ -24,7 +24,7 @@ Our project is called S**pee**do - it's an abbreviation for Sitecore Poor man's 
   - You can cut out the CD role entirely
 
 ### Limitations
-  - The concept works for XM only
+  - The concept works for XM (without session personalization) only
   - Images cannot be cropped at this point in time
 
 ### Is it faster?
@@ -48,35 +48,28 @@ Testing the performance win on a small sample site with few components will not 
 _Remove this subsection if your entry does not have any prerequisites other than Sitecore_
 
 ## Installation instructions
-⟹ Write a short clear step-wise instruction on how to install your module.  
-
-> _A simple well-described installation process is required to win the Hackathon._  
-> Feel free to use any of the following tools/formats as part of the installation:
-> - Sitecore Package files
-> - Docker image builds
-> - Sitecore CLI
-> - msbuild
-> - npm / yarn
-> 
-> _Do not use_
-> - TDS
-> - Unicorn
- 
-f. ex. 
+⟹ To preview our work, please follow these steps
 
 1. Start docker environment using `.\Start-Hackathon.ps1`
-2. Open solution in Visual Studio and run build
-3. Use the Sitecore Installation wizard to install the [package](#link-to-package)
-4. ...
-5. profit
+2. Run dotnet tool restore
+3. Run dotnet sitecore ser push
+4. Run dotnet sitecore ser publish
+
+#TODO add more if needed
 
 ### Configuration
-⟹ If there are any custom configuration that has to be set manually then remember to add all details here.
-
-_Remove this subsection if your entry does not require any configuration that is not fully covered in the installation instructions already_
+⟹ No further configuration needed
 
 ## Usage instructions
-⟹ Provide documentation about your module, how do the users use your module, where are things located, what do the icons mean, are there any secret shortcuts etc.
+⟹ Did you want't to use Speedo in your own solution. Here's what you need to know...
+
+### Setting the File System
+
+### Setting up CM
+
+### Setting up the rendering host for layout service
+
+### Setting up the rendering host for serving images
 
 Include screenshots where necessary. You can add images to the `./images` folder and then link to them from your documentation:
 
@@ -91,4 +84,5 @@ And you can embed external images too:
 ![Random](https://thiscatdoesnotexist.com/)
 
 ## Comments
-⟹ Design has been adapted from Templated's BINARY design (https://templated.co/binary) to fit the structure of our Sitecore solution structure
+⟹ We have the following remarks
+  - Design has been adapted from Templated's BINARY design (https://templated.co/binary) to fit the structure of our Sitecore solution structure

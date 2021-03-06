@@ -27,6 +27,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\..\..\Foundation\Speedo.Foundation.RequestHandler.Rendering\Speedo.Foundation.RequestHandler.Rendering.csproj" />
       <ProjectReference Include="..\..\..\Feature\ContentComponents\ContentComponents.csproj" />
     </ItemGroup>
 

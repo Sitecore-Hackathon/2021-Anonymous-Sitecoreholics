@@ -1,0 +1,19 @@
+{
+    "namespace": "Feature.ContentComponents",
+    "items": {
+        "includes": [
+            {
+                "name": "renderings",
+                "path": "/sitecore/layout/Renderings/Feature/ContentComponents"
+            },
+            {
+                "name": "templates",
+                "path": "/sitecore/templates/Feature/ContentComponents"
+            },
+            {
+                "name": "branch-templates",
+                "path": "/sitecore/templates/Branches/Feature/ContentComponents"
+            }
+        ]
+    }
+}

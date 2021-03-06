@@ -12,6 +12,8 @@ namespace ContentComponents.Models
         public RichTextField Text { get; set; }
 
         public HyperLinkField NavigationLink { get; set; }
+
+        public TextField NavigationLinkText { get; set; }
         
         public TextField Style { get; set; }
 

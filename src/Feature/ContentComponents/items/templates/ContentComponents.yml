@@ -1,8 +1,8 @@
 ﻿---
-ID: "167bd533-a80b-463a-bb45-f682559c2256"
-Parent: "f5f0fbe3-61ad-4967-a5d8-8d760331d6a1"
-Template: "c3b037a0-46e5-4b67-ac7a-a144b962a56f"
-Path: /sitecore/layout/Placeholder Settings/Project/SpeedoDemo
+ID: "c44d0dbe-dd52-4b52-bbdd-525d5641b6e6"
+Parent: "8f343079-3cc5-4ef7-bc27-32addb46f45e"
+Template: "0437fee2-44c9-46a6-abe9-28858d9fee8c"
+Path: /sitecore/templates/Feature/ContentComponents
 Languages:
 - Language: en
   Versions:
@@ -10,14 +10,14 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210306T101351Z
+      Value: 20210306T124336Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "fa16381f-0058-4310-aaf8-0384594065b7"
+      Value: "c74c0373-1b68-4e7b-bd81-e59e8460f075"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210306T162507Z
+      Value: 20210306T124336Z

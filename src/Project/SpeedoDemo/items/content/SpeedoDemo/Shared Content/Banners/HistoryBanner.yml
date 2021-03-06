@@ -1,0 +1,37 @@
+﻿---
+ID: "a0318fe8-497d-4139-81c8-183e85f4d95f"
+Parent: "161821d9-1d70-4cf7-aa6e-767235edb932"
+Template: "2b9add3d-ef00-4acd-b7b4-fd99797c0a95"
+Path: /sitecore/content/SpeedoDemo/Shared Content/Banners/HistoryBanner
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "1e1b8d0d-15c6-44fa-9a46-40be877db011"
+      Hint: NavigationLink
+      Value: |
+        <link text="" anchor="" linktype="internal" class="" title=""  querystring="" id="{2E934A39-4498-48E5-92FA-D7E10955450C}" />
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210306T160820Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "1f6b2049-88e8-4676-ba78-fc5e947caf00"
+    - ID: "8f302545-a18c-49ff-aa5b-009a63c76de8"
+      Hint: Title
+      Value: HistoryBanner
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "c07e6424-1663-4f7e-ab9d-618627df373a"
+      Hint: Image
+      Value: |
+        <image mediaid="{B8527688-A9A2-41CB-8881-3490E5028E60}" />
+    - ID: "d657be3b-952a-431f-b681-ef539477b2d5"
+      Hint: Text
+      Value: "Have you ever wondered when the term Dad Joke where coined? Are you curious about the evolution of Dad Jokes?"
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210306T160926Z

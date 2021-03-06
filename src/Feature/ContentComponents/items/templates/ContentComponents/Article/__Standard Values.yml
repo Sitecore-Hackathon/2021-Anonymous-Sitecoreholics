@@ -1,0 +1,40 @@
+﻿---
+ID: "0284aadc-22a1-42f8-8f8c-113778c0e342"
+Parent: "33b269b1-d6e9-4a35-9388-43c79c9754d8"
+Template: "33b269b1-d6e9-4a35-9388-43c79c9754d8"
+Path: /sitecore/templates/Feature/ContentComponents/Article/__Standard Values
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210306T145005Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\Admin
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+    - ID: "62ff4a3e-489d-4435-886d-4ab6985f2640"
+      Hint: Text
+      Value: 
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "7a9fcb94-6753-4775-b500-18f087b7db37"
+    - ID: "a154d411-a5f8-44a9-9e5c-8938fc57a35f"
+      Hint: Author
+      Value: Anonymous Sitecoreholics
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "bfad87b4-dad7-4806-b2ff-69d79b1e1b5d"
+      Hint: Title
+      Value: $name
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210306T160517Z

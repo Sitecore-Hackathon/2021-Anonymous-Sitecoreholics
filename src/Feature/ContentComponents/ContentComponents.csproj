@@ -1,11 +1,15 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+      <TargetFramework>netcoreapp3.1</TargetFramework>
+      <RootNamespace>Speedo.Feature.ContentComponents</RootNamespace>
+      <AssemblyName>Speedo.Feature.ContentComponents</AssemblyName>
   </PropertyGroup>
 
     <ItemGroup>
         <PackageReference Include="Sitecore.LayoutService.Client" />
+        <PackageReference Include="Sitecore.AspNet.RenderingEngine" />
     </ItemGroup>
 
 </Project>
+

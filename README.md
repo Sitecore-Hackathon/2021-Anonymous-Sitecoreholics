@@ -27,13 +27,15 @@ Our project is called S**pee**do - it's an abbreviation for Sitecore Poor man's 
   - The concept works for XM only
   - Images cannot be cropped at this point in time
 
+### Is it faster?
+Testing the performance win on a small sample site with few components will not reveal the full potential of uplift but yes, it's faster for sure.
+
+[TODO: Insert performance test results]
 
 ## Video link
 ⟹ Provide a video highlighing your Hackathon module submission and provide a link to the video. You can use any video hosting, file share or even upload the video to this repository. _Just remember to update the link below_
 
 ⟹ [Replace this Video link](#video-link)
-
-
 
 ## Pre-requisites and Dependencies
 

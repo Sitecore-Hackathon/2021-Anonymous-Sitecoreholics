@@ -1,3 +1,3 @@
-# Source Code : Feature
+# Source Code : Feature.ContentComponents
 
-Add your source code for your Feature in this folder.
+Feature containing standard content components for building default site content

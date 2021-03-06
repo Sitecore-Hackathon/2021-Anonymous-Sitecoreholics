@@ -1,0 +1,26 @@
+﻿---
+ID: "2e934a39-4498-48e5-92fa-d7e10955450c"
+Parent: "6c6e6770-d1c5-4058-b688-88d1f366dffe"
+Template: "33b269b1-d6e9-4a35-9388-43c79c9754d8"
+Path: /sitecore/content/SpeedoDemo/Home/History
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210306T160433Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "2e0fd801-317f-433a-92b2-532ce2b2b95a"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "bfad87b4-dad7-4806-b2ff-69d79b1e1b5d"
+      Hint: Title
+      Value: History of Dad Jokes
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210306T160446Z

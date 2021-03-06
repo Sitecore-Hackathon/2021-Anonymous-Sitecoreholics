@@ -1,0 +1,31 @@
+﻿---
+ID: "161821d9-1d70-4cf7-aa6e-767235edb932"
+Parent: "bbd1d92f-92a0-463f-a99a-3eb63e7da4a1"
+Template: "a87a00b1-e6db-45ab-8b54-636fec3b5523"
+Path: /sitecore/content/SpeedoDemo/Shared Content/Banners
+BranchID: "ffcb88af-70b4-4b9b-874c-d4dbfc4ce199"
+SharedFields:
+- ID: "1172f251-dad4-4efb-a329-0c63500e4f1e"
+  Hint: __Masters
+  Value: "{2B9ADD3D-EF00-4ACD-B7B4-FD99797C0A95}"
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{821357CF-8FDC-44F8-BDD8-4ED1CEF20B2C}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210306T160751Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "35f53ec2-0b89-4bd9-b1e5-d688c7d525d1"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210306T160751Z

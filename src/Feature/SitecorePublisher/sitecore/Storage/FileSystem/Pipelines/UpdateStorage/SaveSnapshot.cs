@@ -35,49 +35,59 @@ namespace Speedo.Feature.SitecorePublisher.Storage.FileSystem.Pipelines.UpdateSt
 
             var watch = Stopwatch.StartNew();
             var sourceDatabase = Factory.GetDatabase(args.SourceDatabaseName);
-            var device = sourceDatabase.Resources.Devices["/sitecore/layout/devices/default"];
-            var root = sourceDatabase.GetItem("/sitecore/content"/* TODO: move to config and/or args */);
-            var items = CollectItemsWithLayout(root, device);
+            var device = sourceDatabase.Resources.Devices["/sitecore/layout/devices/default"] /* TODO: move to config */;
             var config = _layoutServiceConfiguration.GetNamedConfiguration("default" /* TODO: move to config */);
 
-            foreach (var item in items)
+            foreach (var source in args.Sources)
             {
-                // save all language versions
-                foreach (var language in item.Languages)
-                {
-                    var version = ItemManager.GetItem(item.ID, language, Sitecore.Data.Version.Latest, item.Database, SecurityCheck.Disable);
+                var sourceItem = sourceDatabase.Items.GetItem(source.Path);
 
-                    if (version.Versions.Count == 0)
+                if (sourceItem == null)
+                {
+                    throw new Exception($"Source item '{source.Path}' not found in {args.SourceDatabaseName}.");
+                }
+
+                var items = CollectItemsWithLayout(sourceItem, device);
+
+                foreach (var item in items)
+                {
+                    // save all language versions
+                    foreach (var language in item.Languages)
+                    {
+                        var version = ItemManager.GetItem(item.ID, language, Sitecore.Data.Version.Latest, item.Database, SecurityCheck.Disable);
+
+                        if (version.Versions.Count == 0)
+                        {
+                            continue;
+                        }
+
+                        RenderedItem renderedItem;
+
+                        try
+                        {
+                            renderedItem = _layoutService.Render(version, config.RenderingConfiguration);
+                        }
+                        catch (Exception ex)
+                        {
+                            Log.Error($"Failed to render item {version.Uri}.", ex, this);
+
+                            continue;
+                        }
+
+                        var jsonString = _serializerService.Serialize(renderedItem, config.SerializationConfiguration);
+
+                        System.IO.File.WriteAllText($"C:\\speedo\\{version.ID:D}.{version.Language.Name}.json", jsonString, System.Text.Encoding.UTF8);
+
+                        Log.Info($"TEST json: {jsonString}", this);
+                    }
+
+                    if (!IsMediaWithBlob(item))
                     {
                         continue;
                     }
 
-                    RenderedItem renderedItem;
-
-                    try
-                    {
-                        renderedItem = _layoutService.Render(version, config.RenderingConfiguration);
-                    }
-                    catch (Exception ex)
-                    {
-                        Log.Error($"Failed to render item {version.Uri}.", ex, this);
-
-                        continue;
-                    }
-
-                    var jsonString = _serializerService.Serialize(renderedItem, config.SerializationConfiguration);
-
-                    System.IO.File.WriteAllText($"C:\\speedo\\{version.ID:D}.{version.Language.Name}.json", jsonString, System.Text.Encoding.UTF8);
-
-                    Log.Info($"TEST json: {jsonString}", this);
+                    // TODO: save blob
                 }
-
-                if (!IsMediaWithBlob(item))
-                {
-                    continue;
-                }
-
-                // TODO: save blob
             }
 
             Log.Info($"Saving snapshot took {watch.Elapsed}.", this);

@@ -70,6 +70,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SpeedoConfiguration.cs" />
     <Compile Include="SpeedoServiceConfigurator.cs" />
+    <Compile Include="Storage\Configuration\StorageSource.cs" />
     <Compile Include="Storage\Configuration\StorageConfiguration.cs" />
     <Compile Include="Storage\FileSystem\Pipelines\UpdateStorage\AbortOnNoChanges.cs" />
     <Compile Include="Storage\FileSystem\Pipelines\UpdateStorage\SaveSnapshot.cs" />

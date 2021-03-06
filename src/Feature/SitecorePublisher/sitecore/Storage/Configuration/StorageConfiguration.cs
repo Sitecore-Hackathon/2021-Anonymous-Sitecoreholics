@@ -4,19 +4,18 @@ using System.Xml;
 
 namespace Speedo.Feature.SitecorePublisher.Storage.Configuration
 {
-
     public class StorageConfiguration
     {
-        private readonly List<Source> _sources = new List<Source>();
+        private readonly List<StorageSource> _sources = new List<StorageSource>();
 
         protected void AddSource(XmlNode node)
         {
             _sources.Add(ParseSource(node));
         }
 
-        public IEnumerable<Source> GetSources() => _sources;
+        public IEnumerable<StorageSource> Sources => _sources;
 
-        private Source ParseSource(XmlNode node)
+        private StorageSource ParseSource(XmlNode node)
         {
             if (node == null || !node.LocalName.Equals("source"))
             {
@@ -25,17 +24,7 @@ namespace Speedo.Feature.SitecorePublisher.Storage.Configuration
 
             var path = XmlUtil.GetAttribute("path", node, string.Empty).ToLowerInvariant();
 
-            return new Source(path);
-        }
-
-        public class Source
-        {
-            public Source(string path)
-            {
-                Path = path;
-            }
-
-            public string Path { get; }
+            return new StorageSource(path);
         }
     }
 }

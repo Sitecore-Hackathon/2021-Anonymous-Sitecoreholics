@@ -27,9 +27,9 @@ namespace Speedo.Feature.SitecorePublisher.Events
                 return;
             }
 
-            var sources = _configuration.Storage.GetSources();
+            var sources = _configuration.Storage.Sources;
             var publishOptions = options.First();
-            var pipelineArgs = new UpdateStorageArgs(publishOptions.TargetDatabaseName);
+            var pipelineArgs = new UpdateStorageArgs(publishOptions.TargetDatabaseName, sources);
 
             CorePipeline.Run("updatestorage", pipelineArgs, "speedo", true);
         }

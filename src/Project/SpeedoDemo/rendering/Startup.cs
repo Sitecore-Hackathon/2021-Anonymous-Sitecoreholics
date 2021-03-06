@@ -79,6 +79,7 @@ namespace Speedo.Project.SpeedoDemo.Rendering
                     //Register your components here
                     options
                         .AddModelBoundView<BannerModel>("Banner")
+                        .AddModelBoundView<ArticleModel>("Article")
                         .AddDefaultPartialView("_ComponentNotFound");
                 })
                 // Includes forwarding of Scheme as X-Forwarded-Proto to the Layout Service, so that

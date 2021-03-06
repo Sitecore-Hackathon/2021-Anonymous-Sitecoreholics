@@ -1,0 +1,17 @@
+@model ContentComponents.Models.ArticleModel
+
+<section id="main">
+	<div class="inner">
+		<div class="image fit">
+			<sc-img asp-for="Image" alt=""/>
+		</div>
+		<header>
+			<h1 asp-for="Title"></h1>
+			<p class="info">
+				<p class="info" asp-for="Author"></p>
+			</p>
+		</header>
+        <sc-text asp-for="Text"></sc-text>
+	</div>
+</section>
+

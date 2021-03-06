@@ -78,7 +78,7 @@ To setup the rendering host to use the persisted layout service results, you nee
   - Simply replace the existing HttpHandler with the SpeedoHandler with disk persistency in **Startup.cs**. See before and after below
   - Also, you should add configuration in **appSettings.json**
    - Section should be called **Speedo**
-   - Add a setting **LayoutServiceContentFilePath** with value such as c:\\speedo\\content (local container path if Docker is used)
+   - Add a setting **LayoutServiceContentFilePath** with value such as c:\\speedo\\{sitename}\\content (local container path if Docker is used)
 
 AddSitecoreLayoutService() Before
 ![Before](docs/images/traditional-setup.jpg?raw=true "Before")
@@ -91,7 +91,7 @@ To use static images, you need to configure a File Server in the rendering host.
   - In the ctor initialize options with SpeedoConfiguration = configuration.GetSection(SpeedoOptions.Key).Get<SpeedoOptions>();
   - The values for the options are in **appSettings.json**
    - Section should be called **Speedo** (the same section as used for the other configuration)
-   - Add a setting **MediaLibraryFilePath** with value such as c:\\speedo\\media\\ (local container path if Docker is used)
+   - Add a setting **MediaLibraryFilePath** with value such as c:\\speedo\\{{sitename}}\\media\\ (local container path if Docker is used)
    - Add a setting **MediaLibraryPath** with the value /-/jssmedia. This is the virtual folder that media will be served from
   - In the Configure method add the File Server with the below lines
 

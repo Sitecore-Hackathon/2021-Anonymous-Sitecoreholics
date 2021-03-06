@@ -3,6 +3,24 @@ ID: "0284aadc-22a1-42f8-8f8c-113778c0e342"
 Parent: "33b269b1-d6e9-4a35-9388-43c79c9754d8"
 Template: "33b269b1-d6e9-4a35-9388-43c79c9754d8"
 Path: /sitecore/templates/Feature/ContentComponents/Article/__Standard Values
+SharedFields:
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Value: |
+    <r xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
+        l="{BE8ED558-B65C-4DED-B8F1-7F1813EE0FDF}">
+        <p
+          uid="{076A67D4-6F31-453E-A89B-B89D27AD9D77}"
+          key="speedodemo-main"
+          md="{8976F69E-D6F8-4A7C-A46C-AB4E556EEECC}" />
+        <r
+          id="{BE340A34-CA56-47F4-BCD9-8E15E46D3A5B}"
+          ph="speedodemo-main"
+          uid="{034D0237-74BA-4C5A-82C7-82D4298969C7}" />
+      </d>
+    </r>
 Languages:
 - Language: en
   Versions:
@@ -24,7 +42,7 @@ Languages:
       Value: 
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "7a9fcb94-6753-4775-b500-18f087b7db37"
+      Value: "c1b7d3fd-2464-4b57-8282-e43589379602"
     - ID: "a154d411-a5f8-44a9-9e5c-8938fc57a35f"
       Hint: Author
       Value: Anonymous Sitecoreholics
@@ -37,4 +55,4 @@ Languages:
       Value: $name
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210306T160517Z
+      Value: 20210306T164019Z

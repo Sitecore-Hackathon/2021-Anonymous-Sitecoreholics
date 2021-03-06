@@ -10,6 +10,13 @@ namespace Speedo.Feature.SitecorePublisher.Events
 {
     public class PublishCompleteHandler
     {
+        private readonly SpeedoConfiguration _configuration;
+
+        public PublishCompleteHandler(SpeedoConfiguration configuration)
+        {
+            _configuration = configuration;
+        }
+
         public void RunUpdateStoragePipeline(object sender, EventArgs e)
         {
             var args = e as SitecoreEventArgs;
@@ -20,6 +27,7 @@ namespace Speedo.Feature.SitecorePublisher.Events
                 return;
             }
 
+            var sources = _configuration.Storage.GetSources();
             var publishOptions = options.First();
             var pipelineArgs = new UpdateStorageArgs(publishOptions.TargetDatabaseName);
 

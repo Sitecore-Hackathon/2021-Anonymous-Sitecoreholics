@@ -26,4 +26,8 @@
         <Folder Include="wwwroot\css\" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\..\..\Foundation\Speedo.Foundation.RequestHandler.Rendering\Speedo.Foundation.RequestHandler.Rendering.csproj" />
+    </ItemGroup>
+
 </Project>

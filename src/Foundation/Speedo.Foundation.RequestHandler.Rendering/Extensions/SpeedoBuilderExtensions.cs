@@ -1,5 +1,8 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
 using Sitecore.LayoutService.Client;
 using Sitecore.LayoutService.Client.Extensions;
 using Speedo.Foundation.RequestHandler.Rendering.Options;
@@ -51,5 +54,5 @@ namespace Speedo.Foundation.RequestHandler.Rendering.Extensions
             builder.Services.AddSingleton<IProvider, BlobStorageProvider>();
             return builder;
         }
-    } 
+    }
 }

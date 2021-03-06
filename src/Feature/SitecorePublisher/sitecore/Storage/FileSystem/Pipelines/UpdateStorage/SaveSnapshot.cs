@@ -138,6 +138,7 @@ namespace Speedo.Feature.SitecorePublisher.Storage.FileSystem.Pipelines.UpdateSt
             // if the directory already exists, this method does nothing.
             file.Directory.Create();
 
+            // save json
             File.WriteAllText(file.FullName, json, Encoding.UTF8);
         }
 
@@ -156,8 +157,6 @@ namespace Speedo.Feature.SitecorePublisher.Storage.FileSystem.Pipelines.UpdateSt
                 .Replace("/", "\\");
             var filePath = Path.Combine(fileRootPath, path).ToLowerInvariant();
 
-
-
             FileInfo file = new FileInfo(filePath);
 
             // if the directory already exists, this method does nothing.
@@ -173,6 +172,7 @@ namespace Speedo.Feature.SitecorePublisher.Storage.FileSystem.Pipelines.UpdateSt
 
             Log.Info($"Speedo: saving '{media.InnerItem.Paths.FullPath}' as '{filePath}'...", this);
 
+            // save blob
             using (var blob = media.GetMediaStream())
             {
                 if (blob == null)

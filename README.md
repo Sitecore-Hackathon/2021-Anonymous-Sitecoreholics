@@ -25,7 +25,8 @@ Our project is called S**pee**do - it's an abbreviation for Sitecore Poor man's 
 
 ### Limitations
   - The concept works for XM (without session personalization) only
-  - Images cannot be cropped at this point in time
+  - Images cannot be cropped at this point in time. This would require mimicing the media handler from Sitecore on the rendering host instead of using a File Server or by persisting media in consumed crops
+  - The Snapshot publisher from CM doesn't clear deleted items at this point. It will require adding a head file to track snapshots and number of snapshots to retain
 
 ### Is it faster?
 Testing the performance win on a small sample site with few components will not reveal the full potential of uplift but yes, it's faster for sure.

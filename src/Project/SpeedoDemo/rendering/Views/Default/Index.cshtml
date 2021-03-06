@@ -4,18 +4,4 @@
     ViewData["Title"] = Model.Title?.Value ?? string.Empty;
 }
 
-<div id="MainPanel">
-    <div id="CenterColumn" style="background-image: url(@Model.Banner?.GetMediaLink(new {mw = 1170, mh = 402}))">
-        <div id="InnerCenter">
-            <div id="Header">
-                <img src="/img/sc_logo.png" alt="Sitecore" id="scLogo">
-            </div>
-            <div id="Content">
-                <div id="LeftContent">
-                    <sc-placeholder name="speedodemo-main"></sc-placeholder>
-                </div>
-            </div>
-            <div id="Footer"><hr class="divider">© @Model.CopyrightYear Sitecore</div>
-        </div>
-    </div>
-</div>
+<sc-placeholder name="speedodemo-main"></sc-placeholder>

@@ -34,8 +34,8 @@ COPY src/ ./src/
 RUN mkdir ./docker/deploy/platform
 
 # Build the solution to generate build artifacts
-## assumes that the msbuild property <SitecoreRoleType>platform|rendering</SitecoreRoleType> is used to target deploy folders 
-RUN Get-ChildItem *.sln | %{  msbuild $_.FullName /p:Configuration=$env:BUILD_CONFIGURATION /m /p:DeployOnBuild=true /p:IsLocalDockerDeploy=true }
+## assumes that the msbuild property <SitecoreRoleType>platform|rendering</SitecoreRoleType> is used to target deploy folders
+RUN Get-ChildItem *.sln | %{  msbuild $_.FullName /p:Configuration=$env:BUILD_CONFIGURATION /v:m /m /p:DeployOnBuild=true /p:IsLocalDockerDeploy=true }
 
 # Save the artifacts for copying into other images (see 'cm' and 'rendering' Dockerfiles).
 FROM mcr.microsoft.com/windows/nanoserver:1809

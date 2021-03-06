@@ -1,0 +1,29 @@
+﻿---
+ID: "e14ba083-fa9b-4532-a796-77c6d2f0b346"
+Parent: "31f811ed-42fd-4c1a-b01c-c6952dcbb406"
+Template: "e827244b-0027-498e-85f8-51809d987931"
+Path: /sitecore/content/SpeedoDemo/Shared Content/Heros/AboutSpeedo
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210306T161010Z
+    - ID: "490b224c-76db-4ba7-a1e4-1149414ce657"
+      Hint: NavigationText
+      Value: About
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "e1fdbe45-a73a-40e4-956f-54fbd1c56504"
+    - ID: "a7d7623e-e1e0-4da9-8557-94e9de9617a7"
+      Hint: Text
+      Value: "This is a sample site with and about Dad Jokes build on Speedo - Sitecore Poor man's Experience Edge by&nbsp;Anonymous Sitecoreholics."
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210306T161152Z

@@ -6,11 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@ViewData["Title"]</title>
     <link rel="stylesheet" type="text/css" href="~/css/main.css"/>
-
-    @* This tag helper is necessary to enable robot detection for Sitecore Analytics. *@
-    <sc-visitor-identification></sc-visitor-identification>
 </head>
 <body>
 @RenderBody()
+<!-- Scripts -->
+<script src="~/js/jquery.min.js"></script>
+<script src="~/js/jquery.scrolly.min.js"></script>
+<script src="~/js/skel.min.js"></script>
+<script src="~/js/util.js"></script>
+<script src="~/js/main.js"></script>
 </body>
 </html>

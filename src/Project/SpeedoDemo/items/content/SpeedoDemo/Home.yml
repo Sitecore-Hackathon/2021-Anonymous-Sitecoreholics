@@ -12,9 +12,7 @@ SharedFields:
   Value: 
 - ID: "1172f251-dad4-4efb-a329-0c63500e4f1e"
   Hint: __Masters
-  Value: |
-    {76036F5E-CBCE-46D1-AF0A-4143F9B557AA}
-    {A87A00B1-E6DB-45AB-8B54-636FEC3B5523}
+  Value: "{33B269B1-D6E9-4A35-9388-43C79C9754D8}"
 - ID: "56c15c6d-fd5a-40ca-bb37-64ceec6a9bd5"
   Hint: __Archive date
   Value: 
@@ -60,6 +58,41 @@ SharedFields:
 - ID: "dec8d2d5-e3cf-48b6-a653-8e69e2716641"
   Hint: __Security
   Value: 
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Value: |
+    <r xmlns:p="p" xmlns:s="s"
+      p:p="1">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
+        s:l="{BE8ED558-B65C-4DED-B8F1-7F1813EE0FDF}">
+        <r
+          uid="{43222D12-08C9-453B-AE96-D406EBB95126}">
+          <p:d />
+        </r>
+        <r
+          uid="{CF044AD9-0332-407A-ABDE-587214A2C808}">
+          <p:d />
+        </r>
+        <r
+          uid="{387722D8-5A43-4327-A0FE-D5E3805C07BF}"
+          p:before="*"
+          s:id="{5589E41F-DB04-4F3C-8F4E-61A6F1A35A90}"
+          s:ph="" />
+        <r
+          uid="{78D90578-5337-4110-B24B-A2781FFA8930}"
+          p:after="*[1=2]"
+          s:ds="{A0318FE8-497D-4139-81C8-183E85F4D95F}"
+          s:id="{5DBF1B7A-BA44-4D08-8131-D2F83018B28A}"
+          s:par=""
+          s:ph=""
+          s:ccb="Clear on publish" />
+        <r
+          uid="{B343725A-3A93-446E-A9C8-3A2CBD3DB489}">
+          <p:d />
+        </r>
+      </d>
+    </r>
 Languages:
 - Language: en
   Fields:
@@ -94,7 +127,7 @@ Languages:
       Value: Sitecore Experience Speedos
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "7552a4bb-30d5-47cd-af34-9bcd1d475aa7"
+      Value: "1b167ce1-22ed-43c0-af1e-6c3450be4aa5"
     - ID: "a60acd61-a6db-4182-8329-c957982cec74"
       Hint: Text
       Value: |
@@ -109,4 +142,4 @@ Languages:
       Value: 
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210306T104419Z
+      Value: 20210306T162937Z

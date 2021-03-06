@@ -1,0 +1,35 @@
+﻿---
+ID: "b020b14a-b85a-48ef-9e49-23b4d366060a"
+Parent: "6c6e6770-d1c5-4058-b688-88d1f366dffe"
+Template: "33b269b1-d6e9-4a35-9388-43c79c9754d8"
+Path: /sitecore/content/SpeedoDemo/Home/About
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210306T161204Z
+    - ID: "62ff4a3e-489d-4435-886d-4ab6985f2640"
+      Hint: Text
+      Value: |
+        <p>Documentation on Speedo</p>
+        <p>&nbsp;</p>
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "7865fbf4-c1de-4fb2-9695-0858e57c6072"
+    - ID: "aab30688-ad7b-42cf-b1df-4a59bb7e1242"
+      Hint: Image
+      Value: |
+        <image mediaid="{D918D3AB-436A-4CF7-8627-843A59959209}" />
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "bfad87b4-dad7-4806-b2ff-69d79b1e1b5d"
+      Hint: Title
+      Value: About
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210306T161255Z

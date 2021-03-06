@@ -3,22 +3,14 @@
 namespace Speedo.Feature.ContentComponents.Rendering.Models
 {
     /// <summary>
-    /// A model used for creating a banner with the possibility to include navigation  
+    /// A model used for creating a Hero banner 
     /// </summary>
-    public class BannerModel
+    public class HeroModel
     {
-        public TextField Title { get; set; }
-
         public RichTextField Text { get; set; }
 
         public HyperLinkField NavigationLink { get; set; }
 
         public TextField NavigationLinkText { get; set; }
-        
-        public TextField Style { get; set; }
-
-        public ImageField Image { get; set; }
-
-        public TextField Author { get; set; }
     }
 }

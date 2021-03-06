@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+      <TargetFramework>netcoreapp3.1</TargetFramework>
+      <RootNamespace>Speedo.Feature.ContentComponents.Rendering</RootNamespace>
+      <AssemblyName>Speedo.Feature.ContentComponents.Rendering</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="items\**" />
+    <Compile Remove="rendering\**" />
+    <EmbeddedResource Remove="items\**" />
+    <EmbeddedResource Remove="rendering\**" />
+    <None Remove="items\**" />
+    <None Remove="rendering\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="ArticleModel.cs" />
+  </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Sitecore.LayoutService.Client" />
+        <PackageReference Include="Sitecore.AspNet.RenderingEngine" />
+    </ItemGroup>
+
+</Project>
+

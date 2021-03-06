@@ -13,12 +13,11 @@ using Sitecore.LayoutService.Client.Extensions;
 using Sitecore.LayoutService.Client.Newtonsoft.Extensions;
 using Sitecore.LayoutService.Client.Request;
 using Speedo.Project.SpeedoDemo.Rendering.Configuration;
-using Speedo.Project.SpeedoDemo.Rendering.Models;
 using System.Collections.Generic;
 using System.Globalization;
-using ContentComponents.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.FileProviders;
+using Speedo.Feature.ContentComponents.Rendering.Models;
 using Speedo.Foundation.RequestHandler.Rendering.Extensions;
 using Speedo.Foundation.RequestHandler.Rendering.Options;
 
@@ -66,11 +65,11 @@ namespace Speedo.Project.SpeedoDemo.Rendering
                         .SiteName(SitecoreConfiguration.DefaultSiteName)
                         .ApiKey(SitecoreConfiguration.ApiKey);
                 })
-                /*
+                
                  .AddSpeedoHandler("default", Configuration)
                  .WithDiskPersistency()
-                 */
-                .AddHttpHandler("default", SitecoreConfiguration.LayoutServiceUri)
+                
+                //.AddHttpHandler("default", SitecoreConfiguration.LayoutServiceUri)
                 .AsDefaultHandler();
 
             // Register the Sitecore Rendering Engine services.
@@ -80,6 +79,9 @@ namespace Speedo.Project.SpeedoDemo.Rendering
                     options
                         .AddModelBoundView<BannerModel>("Banner")
                         .AddModelBoundView<ArticleModel>("Article")
+                        .AddModelBoundView<HeroModel>("Hero")
+                        .AddModelBoundView<FooterModel>("Footer")
+                        .AddModelBoundView<HeaderModel>("Header")
                         .AddDefaultPartialView("_ComponentNotFound");
                 })
                 // Includes forwarding of Scheme as X-Forwarded-Proto to the Layout Service, so that
@@ -147,11 +149,11 @@ namespace Speedo.Project.SpeedoDemo.Rendering
             app.UseSitecoreVisitorIdentification();
 
             // Configure app to use Speedo for static assets
-            app.UseFileServer(new FileServerOptions
+            /*app.UseFileServer(new FileServerOptions
             {
                 FileProvider = new PhysicalFileProvider(SpeedoConfiguration.MediaLibraryFilePath),
                 RequestPath = new PathString(SpeedoConfiguration.MediaLibraryPath)
-            });
+            });*/
 
             app.UseEndpoints(endpoints =>
             {

@@ -1,0 +1,20 @@
+@model Speedo.Feature.ContentComponents.Rendering.Models.HeroModel
+
+<section id="banner">
+    <div class="inner">
+        <h1 asp-for="Text"></h1>
+        <ul class="actions">
+            @if (Model.NavigationLink != null)
+            {
+                <li>
+                    <sc-link asp-for="NavigationLink" class="button alt scrolly big"><sc-text asp-for="NavigationLinkText"></sc-text></sc-link>
+                </li>
+            }
+                
+            else
+            {
+                <li asp-for="NavigationLinkText"></li>
+            }
+        </ul>
+    </div>
+</section>

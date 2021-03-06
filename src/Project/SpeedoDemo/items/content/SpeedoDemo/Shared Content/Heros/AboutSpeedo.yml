@@ -12,18 +12,24 @@ Languages:
       Hint: __Created
       Value: 20210306T161010Z
     - ID: "490b224c-76db-4ba7-a1e4-1149414ce657"
-      Hint: NavigationText
+      Hint: NavigationLinkText
       Value: About
+    - ID: "54ab855b-9ea3-456a-8712-c6ff2abaa749"
+      Hint: NavigationLink
+      Value: |
+        <link text="" anchor="" linktype="internal" class="" title=""  querystring="" id="{B020B14A-B85A-48EF-9E49-23B4D366060A}" />
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "e1fdbe45-a73a-40e4-956f-54fbd1c56504"
+      Value: "17335010-37b9-4ad7-b854-1c08626e254d"
     - ID: "a7d7623e-e1e0-4da9-8557-94e9de9617a7"
       Hint: Text
-      Value: "This is a sample site with and about Dad Jokes build on Speedo - Sitecore Poor man's Experience Edge by&nbsp;Anonymous Sitecoreholics."
+      Value: |
+        This is a sample site with and about Dad Jokes built on <br />
+        Speedo - Sitecore <strong>P</strong>oor man's <strong>E</strong>xperience <strong>E</strong>dge by&nbsp;Anonymous Sitecoreholics.
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210306T161152Z
+      Value: 20210306T195808Z

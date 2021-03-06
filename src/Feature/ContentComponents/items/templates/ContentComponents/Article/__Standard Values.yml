@@ -4,6 +4,9 @@ Parent: "33b269b1-d6e9-4a35-9388-43c79c9754d8"
 Template: "33b269b1-d6e9-4a35-9388-43c79c9754d8"
 Path: /sitecore/templates/Feature/ContentComponents/Article/__Standard Values
 SharedFields:
+- ID: "1172f251-dad4-4efb-a329-0c63500e4f1e"
+  Hint: __Masters
+  Value: "{33B269B1-D6E9-4A35-9388-43C79C9754D8}"
 - ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
   Hint: __Renderings
   Value: |
@@ -16,9 +19,23 @@ SharedFields:
           key="speedodemo-main"
           md="{8976F69E-D6F8-4A7C-A46C-AB4E556EEECC}" />
         <r
+          ds="{4EF0B64E-C4EC-4F27-8683-793C3AF0EC3E}"
+          id="{E2CDC63D-02DD-4FE6-AC63-016338409F6A}"
+          par=""
+          ph=""
+          uid="{D25B32B8-EC2B-4F95-B637-3AB8312F29C0}"
+          ccb="Clear on publish" />
+        <r
           id="{BE340A34-CA56-47F4-BCD9-8E15E46D3A5B}"
           ph="speedodemo-main"
           uid="{034D0237-74BA-4C5A-82C7-82D4298969C7}" />
+        <r
+          ds="{067D17E5-448A-4B2D-908D-31953236AE11}"
+          id="{9CB549E9-9875-4050-AFC2-9920EABFF80A}"
+          par=""
+          ph=""
+          uid="{4FD0E239-A380-42B1-8375-5A85E1E77C13}"
+          ccb="Clear on publish" />
       </d>
     </r>
 Languages:
@@ -37,22 +54,13 @@ Languages:
       Hint: __Created by
       Value: |
         sitecore\Admin
-    - ID: "62ff4a3e-489d-4435-886d-4ab6985f2640"
-      Hint: Text
-      Value: 
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "c1b7d3fd-2464-4b57-8282-e43589379602"
-    - ID: "a154d411-a5f8-44a9-9e5c-8938fc57a35f"
-      Hint: Author
-      Value: Anonymous Sitecoreholics
+      Value: "0c3d3606-96e3-41a9-8a12-bea6a5ba6739"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\Admin
-    - ID: "bfad87b4-dad7-4806-b2ff-69d79b1e1b5d"
-      Hint: Title
-      Value: $name
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210306T164019Z
+      Value: 20210306T201143Z

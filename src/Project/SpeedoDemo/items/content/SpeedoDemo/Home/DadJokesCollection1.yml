@@ -1,8 +1,8 @@
 ﻿---
-ID: "2e934a39-4498-48e5-92fa-d7e10955450c"
+ID: "7639cf47-d7f7-4013-b0a5-dbc9146dc03d"
 Parent: "6c6e6770-d1c5-4058-b688-88d1f366dffe"
 Template: "33b269b1-d6e9-4a35-9388-43c79c9754d8"
-Path: /sitecore/content/SpeedoDemo/Home/History
+Path: /sitecore/content/SpeedoDemo/Home/DadJokesCollection1
 Languages:
 - Language: en
   Versions:
@@ -10,36 +10,36 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210306T160433Z
+      Value: 20210306T183827Z
     - ID: "62ff4a3e-489d-4435-886d-4ab6985f2640"
       Hint: Text
       Value: |
-        <p>Q: Why were the early days of history called the dark ages?<br />
-        A: Because there were so many knights! <br />
+        Q: Why were the early days of history called the dark ages?<br />
+        A: Because there were so many knights!<br />
         <br />
         Q: Why is England the wettest country?<br />
-        A: Because the queen has reigned there for years! <br />
+        A: Because the queen has reigned there for years!<br />
         <br />
-        Q: How did the Vikings send secret messages? <br />
+        Q: How did the Vikings send secret messages?<br />
         A: By norse code!<br />
         <br />
-        Q: Who invented fractions? <br />
-        A: Henry the 1/4th! <br />
+        Q: Who invented fractions?<br />
+        A: Henry the 1/4th!<br />
         <br />
         Q: What kind of lighting did Noah use for the ark?<br />
-        A: Floodlights! <br />
+        A: Floodlights!<br />
         <br />
         Q: What did they do at the Boston Tea Party?<br />
         A: I don't know, I wasn't invited!<br />
         <br />
-        Q: What's purple and 5000 miles long? <br />
-        A: The grape wall of China. <br />
+        Q: What's purple and 5000 miles long?<br />
+        A: The grape wall of China.<br />
         <br />
-        Q: What did Mason say to Dixon? <br />
-        A: We've got to draw the line here! Q: Who made King Arthur's round table? A: Sir-Cumference</p>
+        Q: What did Mason say to Dixon?<br />
+        A: We've got to draw the line here! Q: Who made King Arthur's round table? A: Sir-Cumference
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "554b2a21-7ed2-46de-b1b8-0ce9c520f879"
+      Value: "5f38e3a1-7d45-4daa-ae08-fa851050838a"
     - ID: "a154d411-a5f8-44a9-9e5c-8938fc57a35f"
       Hint: Author
       Value: Anonymous Sitecoreholics
@@ -53,7 +53,7 @@ Languages:
         sitecore\Admin
     - ID: "bfad87b4-dad7-4806-b2ff-69d79b1e1b5d"
       Hint: Title
-      Value: History of Dad Jokes
+      Value: "Dad Jokes Collection - Batch 1"
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210306T200454Z
+      Value: 20210306T184111Z

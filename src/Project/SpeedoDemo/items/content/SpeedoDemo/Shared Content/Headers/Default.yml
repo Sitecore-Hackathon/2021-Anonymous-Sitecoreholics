@@ -1,0 +1,26 @@
+﻿---
+ID: "4ef0b64e-c4ec-4f27-8683-793c3af0ec3e"
+Parent: "4aa1ad11-018d-4b27-8f01-3483b44b3109"
+Template: "1d2a26fa-212c-4ffe-8c1d-bcf478c2cd4d"
+Path: /sitecore/content/SpeedoDemo/Shared Content/Headers/Default
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210306T193920Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "43cf5ef0-148a-435b-a259-9107750b0cbb"
+    - ID: "a0fa34b0-90ca-48a5-81ec-ec0e95eca7ea"
+      Hint: Title
+      Value: "Speedo - Sitecore Poor man's Experience Edge"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210306T200108Z

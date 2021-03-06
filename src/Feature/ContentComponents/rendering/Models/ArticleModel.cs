@@ -1,9 +1,9 @@
 ﻿using Sitecore.LayoutService.Client.Response.Model.Fields;
 
-namespace ContentComponents.Models
+namespace Speedo.Feature.ContentComponents.Rendering.Models
 {
     /// <summary>
-    /// A component used for creating an article component
+    /// A model used for creating an article
     /// </summary>
     public class ArticleModel
     {

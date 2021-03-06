@@ -1,15 +1,15 @@
 ﻿---
-ID: "54ab855b-9ea3-456a-8712-c6ff2abaa749"
-Parent: "bfa092cf-11c9-46e4-b7e1-792419ed9600"
+ID: "a0fa34b0-90ca-48a5-81ec-ec0e95eca7ea"
+Parent: "59d6b98c-f35e-4914-bdaf-2856911f3a21"
 Template: "455a3e98-a627-4b40-8035-e683a0331ac7"
-Path: /sitecore/templates/Feature/ContentComponents/Hero/Content/NavigationLink
+Path: /sitecore/templates/Feature/ContentComponents/Header/Content/Title
 SharedFields:
 - ID: "ab162cc0-dc80-4abf-8871-998ee5d7ba32"
   Hint: Type
-  Value: General Link
+  Value: "Single-Line Text"
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
-  Value: 200
+  Value: 100
 Languages:
 - Language: en
   Versions:
@@ -17,14 +17,14 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210306T144522Z
+      Value: 20210306T193153Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "90fb178a-b668-4cd9-a564-27435bffe75d"
+      Value: "793214b8-9d5e-47a3-9242-364472c5d38e"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210306T194737Z
+      Value: 20210306T193153Z

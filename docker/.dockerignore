@@ -9,6 +9,7 @@ packages
 **/bin/
 **/obj/
 **/out/
+_StarterKit/
 
 # files
 *Dockerfile

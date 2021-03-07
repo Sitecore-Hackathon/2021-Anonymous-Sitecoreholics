@@ -25,7 +25,7 @@ Languages:
         sitecore\Admin
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "bd8948aa-f77b-4127-896c-fe9f7353aad6"
+      Value: "ce90579c-63c8-4115-87c9-d13ada274af2"
     - ID: "8f302545-a18c-49ff-aa5b-009a63c76de8"
       Hint: Title
       Value: Banner 13
@@ -33,9 +33,13 @@ Languages:
       Hint: __Updated by
       Value: |
         sitecore\Admin
+    - ID: "c07e6424-1663-4f7e-ab9d-618627df373a"
+      Hint: Image
+      Value: |
+        <image mediaid="{B7CE9D17-ACAC-4A99-B6BF-9329BEE1A5D3}" />
     - ID: "d657be3b-952a-431f-b681-ef539477b2d5"
       Hint: Text
       Value: Dad died because he couldn't remember his blood type. I will never forget his last words. Be positive.
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210307T002536Z
+      Value: 20210307T003639Z

@@ -25,7 +25,7 @@ Languages:
         sitecore\Admin
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "be3515fb-3d17-46f7-b44c-fd430991ef08"
+      Value: "28eeaae9-ef0f-4dfb-bc3a-c475a6701577"
     - ID: "8f302545-a18c-49ff-aa5b-009a63c76de8"
       Hint: Title
       Value: Banner 11
@@ -33,9 +33,13 @@ Languages:
       Hint: __Updated by
       Value: |
         sitecore\Admin
+    - ID: "c07e6424-1663-4f7e-ab9d-618627df373a"
+      Hint: Image
+      Value: |
+        <image mediaid="{50EC0CA2-BAD4-45DC-A104-98174844A9B0}" />
     - ID: "d657be3b-952a-431f-b681-ef539477b2d5"
       Hint: Text
       Value: Coffee has a tough time at my house, every morning it gets mugged.
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210307T002534Z
+      Value: 20210307T003621Z

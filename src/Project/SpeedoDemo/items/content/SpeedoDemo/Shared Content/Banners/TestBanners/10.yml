@@ -25,7 +25,7 @@ Languages:
         sitecore\Admin
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "849ce210-7789-489c-824f-6aa2338e9f7d"
+      Value: "8dc90151-4c37-4fda-9aa7-d2e60ef53399"
     - ID: "8f302545-a18c-49ff-aa5b-009a63c76de8"
       Hint: Title
       Value: Banner 10
@@ -33,9 +33,13 @@ Languages:
       Hint: __Updated by
       Value: |
         sitecore\Admin
+    - ID: "c07e6424-1663-4f7e-ab9d-618627df373a"
+      Hint: Image
+      Value: |
+        <image mediaid="{D37A3E82-A178-4C3A-817F-9D875A280593}" />
     - ID: "d657be3b-952a-431f-b681-ef539477b2d5"
       Hint: Text
       Value: An apple a day keeps the bullies away. If you throw it hard enough.
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210307T002532Z
+      Value: 20210307T003612Z

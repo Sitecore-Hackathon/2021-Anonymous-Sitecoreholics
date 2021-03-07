@@ -25,7 +25,7 @@ Languages:
         sitecore\Admin
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "d5f6e552-9693-40db-b157-31649788b40e"
+      Value: "96835153-7e2d-49cd-97fb-cfef362bd022"
     - ID: "8f302545-a18c-49ff-aa5b-009a63c76de8"
       Hint: Title
       Value: Banner 14
@@ -33,9 +33,13 @@ Languages:
       Hint: __Updated by
       Value: |
         sitecore\Admin
+    - ID: "c07e6424-1663-4f7e-ab9d-618627df373a"
+      Hint: Image
+      Value: |
+        <image mediaid="{281313D1-1115-45F4-B774-6E3817289A78}" />
     - ID: "d657be3b-952a-431f-b681-ef539477b2d5"
       Hint: Text
       Value: "Why do you never see elephants hiding in trees? Because they're so good at it."
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210307T002144Z
+      Value: 20210307T003646Z

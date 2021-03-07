@@ -25,7 +25,7 @@ Languages:
         sitecore\Admin
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "b083c897-d9a1-49ac-901d-8940d33d53f1"
+      Value: "0e38092b-34d4-4ee6-9abd-eae0947d8fad"
     - ID: "8f302545-a18c-49ff-aa5b-009a63c76de8"
       Hint: Title
       Value: Banner 12
@@ -33,9 +33,13 @@ Languages:
       Hint: __Updated by
       Value: |
         sitecore\Admin
+    - ID: "c07e6424-1663-4f7e-ab9d-618627df373a"
+      Hint: Image
+      Value: |
+        <image mediaid="{BDBB3F2B-9D6C-45B1-9E65-8E7B9F05B686}" />
     - ID: "d657be3b-952a-431f-b681-ef539477b2d5"
       Hint: Text
       Value: "What do you call an Argentinian with a rubber toe? Roberto"
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210307T002140Z
+      Value: 20210307T003630Z

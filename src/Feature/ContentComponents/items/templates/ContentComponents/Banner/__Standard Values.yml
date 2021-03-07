@@ -8,6 +8,10 @@ Languages:
   Versions:
   - Version: 1
     Fields:
+    - ID: "1e1b8d0d-15c6-44fa-9a46-40be877db011"
+      Hint: NavigationLink
+      Value: |
+        <link text="" anchor="" linktype="internal" class="" title=""  querystring="" id="{6C6E6770-D1C5-4058-B688-88D1F366DFFE}" />
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20210306T145014Z
@@ -15,17 +19,33 @@ Languages:
       Hint: __Owner
       Value: |
         sitecore\Admin
+    - ID: "5c87ea76-9308-4add-b42f-18c8049bd025"
+      Hint: Style
+      Value: post invert style1 alt
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
         sitecore\Admin
+    - ID: "6e09ce12-f8ec-4bdc-a0e4-976fa54824fb"
+      Hint: Author
+      Value: Anonymous Sitecoreholics
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "aa80d6ef-8e51-4012-af13-35e191216d3b"
+      Value: "332c2e77-2e02-4cfe-9fdb-6b984c473ede"
+    - ID: "8f302545-a18c-49ff-aa5b-009a63c76de8"
+      Hint: Title
+      Value: Banner $name
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\Admin
+    - ID: "c07e6424-1663-4f7e-ab9d-618627df373a"
+      Hint: Image
+      Value: |
+        <image mediaid="{B8527688-A9A2-41CB-8881-3490E5028E60}" />
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210306T145138Z
+      Value: 20210306T233707Z
+    - ID: "edde273a-a012-4501-803e-b1d82234c6c4"
+      Hint: NavigationLinkText
+      Value: Home

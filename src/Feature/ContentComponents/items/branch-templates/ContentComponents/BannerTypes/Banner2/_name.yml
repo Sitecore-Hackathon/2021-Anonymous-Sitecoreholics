@@ -1,0 +1,34 @@
+﻿---
+ID: "45a77389-bad1-409f-87f8-03a084a8c7ae"
+Parent: "25394512-1895-4abd-b90e-7dbdf1b99ee0"
+Template: "2b9add3d-ef00-4acd-b7b4-fd99797c0a95"
+Path: /sitecore/templates/Branches/Feature/ContentComponents/BannerTypes/Banner2/$name
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210306T231052Z
+    - ID: "5c87ea76-9308-4add-b42f-18c8049bd025"
+      Hint: Style
+      Value: post style2
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "764eab31-5a79-4cb8-8e78-a8f29194fa23"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "c07e6424-1663-4f7e-ab9d-618627df373a"
+      Hint: Image
+      Value: |
+        <image mediaid="{A679FF8A-6CDA-4E05-B195-849ABC3C71BB}" />
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210306T231453Z

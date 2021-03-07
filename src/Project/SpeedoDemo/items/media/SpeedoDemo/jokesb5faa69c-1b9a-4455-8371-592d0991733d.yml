@@ -1,0 +1,27 @@
+﻿---
+ID: "bcbcea57-765d-4631-a663-55e7969d6f43"
+Parent: "1b53eb0e-dfb7-423b-baca-27fecb931173"
+Template: "f1828a2c-7e5d-4bbd-98ca-320474871548"
+Path: "/sitecore/media library/SpeedoDemo/jokesb5faa69c-1b9a-4455-8371-592d0991733d"
+SharedFields:
+- ID: "c06867fe-9a43-4c7d-b739-48780492d06f"
+  Hint: Extension
+  Value: png
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210306T230526Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "5069182c-20c6-41e6-88e5-0bf4060e3001"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210306T230526Z

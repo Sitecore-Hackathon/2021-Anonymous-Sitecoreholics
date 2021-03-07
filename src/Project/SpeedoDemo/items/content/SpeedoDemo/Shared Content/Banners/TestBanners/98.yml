@@ -1,0 +1,38 @@
+﻿---
+ID: "0bfc7343-d84b-45b1-83e8-9ebb94261b4a"
+Parent: "07e793e8-33a2-41e3-8070-99d3474a62ab"
+Template: "2b9add3d-ef00-4acd-b7b4-fd99797c0a95"
+Path: /sitecore/content/SpeedoDemo/Shared Content/Banners/TestBanners/98
+BranchID: "38f1b846-b2b2-45c4-8f3d-3fe8612d9180"
+SharedFields:
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{90825DB4-4894-4336-A406-0512A34F144E}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210306T234839Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "74e81de9-6aef-4418-b09b-d5c8e3dda432"
+    - ID: "8f302545-a18c-49ff-aa5b-009a63c76de8"
+      Hint: Title
+      Value: Banner 98
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d657be3b-952a-431f-b681-ef539477b2d5"
+      Hint: Text
+      Value: My sea sickness comes in waves.
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210306T234839Z

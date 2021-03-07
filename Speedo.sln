@@ -45,6 +45,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Speedo.Foundation.RequestHa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Speedo.Feature.ContentComponents.Rendering", "src\Feature\ContentComponents\rendering\Speedo.Feature.ContentComponents.Rendering.csproj", "{E563ABBE-FB80-4EBB-9397-3F86A58D636F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Speedo.Feature.ICanHazDadJokeProvider", "src\Feature\ICanHazDadJokeProvider\sitecore\Speedo.Feature.ICanHazDadJokeProvider.csproj", "{A72280CE-C6E7-4AAC-9209-C1E21FD1501F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +77,10 @@ Global
 		{E563ABBE-FB80-4EBB-9397-3F86A58D636F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E563ABBE-FB80-4EBB-9397-3F86A58D636F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E563ABBE-FB80-4EBB-9397-3F86A58D636F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A72280CE-C6E7-4AAC-9209-C1E21FD1501F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A72280CE-C6E7-4AAC-9209-C1E21FD1501F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A72280CE-C6E7-4AAC-9209-C1E21FD1501F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A72280CE-C6E7-4AAC-9209-C1E21FD1501F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -87,6 +93,7 @@ Global
 		{6177505A-1C77-4954-8425-3D7D22E74F33} = {17DD5718-6E13-4F2C-9738-B410396D4552}
 		{E228D30C-B47F-4ECC-9998-2E6128C80E9A} = {4FDA1DCD-D33E-447E-91C1-F4AE818E2CF0}
 		{E563ABBE-FB80-4EBB-9397-3F86A58D636F} = {17DD5718-6E13-4F2C-9738-B410396D4552}
+		{A72280CE-C6E7-4AAC-9209-C1E21FD1501F} = {17DD5718-6E13-4F2C-9738-B410396D4552}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {311DA37D-528B-43B2-A99B-E7253F841D46}

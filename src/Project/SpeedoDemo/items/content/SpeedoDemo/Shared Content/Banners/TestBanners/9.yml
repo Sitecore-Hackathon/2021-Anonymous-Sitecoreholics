@@ -1,0 +1,41 @@
+﻿---
+ID: "c5159d1b-c058-4a02-a21c-1ea84326038b"
+Parent: "07e793e8-33a2-41e3-8070-99d3474a62ab"
+Template: "2b9add3d-ef00-4acd-b7b4-fd99797c0a95"
+Path: /sitecore/content/SpeedoDemo/Shared Content/Banners/TestBanners/9
+BranchID: "25394512-1895-4abd-b90e-7dbdf1b99ee0"
+SharedFields:
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{45A77389-BAD1-409F-87F8-03A084A8C7AE}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210306T233851Z
+    - ID: "5c87ea76-9308-4add-b42f-18c8049bd025"
+      Hint: Style
+      Value: post style1
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "8f06280f-5881-4925-9640-9a426864acff"
+    - ID: "8f302545-a18c-49ff-aa5b-009a63c76de8"
+      Hint: Title
+      Value: Banner 9
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d657be3b-952a-431f-b681-ef539477b2d5"
+      Hint: Text
+      Value: This is my step ladder. I never knew my real ladder.
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210307T002447Z

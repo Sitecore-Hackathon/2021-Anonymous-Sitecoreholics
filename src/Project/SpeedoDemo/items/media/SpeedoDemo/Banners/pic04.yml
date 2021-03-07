@@ -1,8 +1,8 @@
 ﻿---
 ID: "d37a3e82-a178-4c3a-817f-9d875a280593"
-Parent: "b8527688-a9a2-41cb-8881-3490e5028e60"
+Parent: "51e19812-2219-46c8-90ff-ba7cb5e99d62"
 Template: "daf085e8-602e-43a6-8299-038ff171349f"
-Path: "/sitecore/media library/SpeedoDemo/Banners/nathan-anderson-FHiJWoBodrs-unsplash-opt/pic04"
+Path: /sitecore/media library/SpeedoDemo/Banners/pic04
 SharedFields:
 - ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
   Hint: __Icon
@@ -20,6 +20,9 @@ SharedFields:
 - ID: "6f47a0a5-9c94-4b48-abeb-42d38def6054"
   Hint: Mime Type
   Value: image/jpeg
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 150
 - ID: "c06867fe-9a43-4c7d-b739-48780492d06f"
   Hint: Extension
   Value: jpg
@@ -39,11 +42,11 @@ Languages:
       Value: 20210306T232632Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "c87fb09a-3a73-4d94-9d79-061ef0090eb5"
+      Value: "74c5e654-b318-4236-af34-2e01fec485d6"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210306T232632Z
+      Value: 20210307T004421Z

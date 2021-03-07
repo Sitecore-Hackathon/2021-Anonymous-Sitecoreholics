@@ -1,8 +1,8 @@
 ﻿---
 ID: "09e96f3c-e5a4-4625-a6d5-daeddb4df666"
-Parent: "b8527688-a9a2-41cb-8881-3490e5028e60"
+Parent: "51e19812-2219-46c8-90ff-ba7cb5e99d62"
 Template: "daf085e8-602e-43a6-8299-038ff171349f"
-Path: "/sitecore/media library/SpeedoDemo/Banners/nathan-anderson-FHiJWoBodrs-unsplash-opt/pic14"
+Path: /sitecore/media library/SpeedoDemo/Banners/pic14
 SharedFields:
 - ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
   Hint: __Icon

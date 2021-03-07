@@ -14,18 +14,129 @@ Languages:
     - ID: "62ff4a3e-489d-4435-886d-4ab6985f2640"
       Hint: Text
       Value: |
-        <p>Documentation on Speedo</p>
+        <p><strong>Description</strong></p>
+        <p>Our project is called S<strong>pee</strong>do - it's an abbreviation for Sitecore Poor man's Experience Edge. The concept is simple. The CM will scrape and persist layout service responses and media items to a given persistent storage on publish and the rendering host will then read layout service content from here instead of calling the CD and media will be served statically from the rendering host using the File Server Option available. The following drawing summarizes the concept!</p>
+        <p>&nbsp;</p>
+        <p><strong>Benefits</strong></p>
+        <p>- See it as a cache without actually using memory cache. It's blazing fast and reacts as soon as a file is modified<br />
+        - Many runtimes can share the same persisted content<br />
+        - You can easily geo replicate the persisted content<br />
+        - It's easily usable in AKS with file shares or persistent volumes but could also easily be extended with Blob Storage, S3 buckets or other options<br />
+        - You can cut out the CD role entirely</p>
+        <p><strong>&nbsp;</strong></p>
+        <p><strong>Limitations</strong></p>
+        <p>- The concept works for XM (without session personalization) only<br />
+        - Images cannot be cropped at this point in time. This would require mimicking the media handler from Sitecore on the rendering host instead of using a File Server or by persisting media in consumed crops<br />
+        - The Snapshot publisher from CM doesn't clear deleted items at this point. It will require adding a head file to track snapshots and number of snapshots to retain</p>
+        <div>&nbsp;</div>
+        <p><strong>&nbsp;Is it faster?</strong><br />
+        <br />
+        Testing the performance win on a small sample site with few components will not reveal the full potential of uplift but yes, it's faster for sure.<br />
+        <br />
+        Rendering Host doing http requests to the layout service:</p>
+        <p>Server Software:&nbsp; &nbsp; &nbsp; &nbsp; Kestrel<br />
+        Server Hostname:&nbsp; &nbsp; &nbsp; &nbsp; www.speedo.localhost<br />
+        Server Port:&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 443<br />
+        SSL/TLS Protocol:&nbsp; &nbsp; &nbsp; &nbsp;TLSv1.2,ECDHE-RSA-AES256-GCM-SHA384,2048,256<br />
+        Server Temp Key:&nbsp; &nbsp; &nbsp; &nbsp; X25519 253 bits<br />
+        TLS Server Name:&nbsp; &nbsp; &nbsp; &nbsp; www.speedo.localhost<br />
+        Document Path:&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; /<br />
+        Document Length:&nbsp; &nbsp; &nbsp; &nbsp; 4238 bytes<br />
+        <br />
+        Concurrency Level:&nbsp; &nbsp; &nbsp; 100<br />
+        Time taken for tests:&nbsp; &nbsp;7.307 seconds<br />
+        Complete requests:&nbsp; &nbsp; &nbsp; 1000<br />
+        Failed requests:&nbsp; &nbsp; &nbsp; &nbsp; 0<br />
+        Total transferred:&nbsp; &nbsp; &nbsp; 4351000 bytes<br />
+        HTML transferred:&nbsp; &nbsp; &nbsp; &nbsp;4238000 bytes<br />
+        Requests per second:&nbsp; &nbsp; 136.86 [#/sec] (mean)<br />
+        Time per request:&nbsp; &nbsp; &nbsp; &nbsp;730.687 [ms] (mean)<br />
+        Time per request:&nbsp; &nbsp; &nbsp; &nbsp;7.307 [ms] (mean, across all concurrent requests)<br />
+        Transfer rate:&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 581.51 [Kbytes/sec] received</p>
+        <p>Connection Times (ms)<br />
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; min&nbsp; mean[+/-sd] median&nbsp; &nbsp;max<br />
+        Connect:&nbsp; &nbsp; &nbsp; &nbsp; 4&nbsp; &nbsp;39&nbsp; 37.3&nbsp; &nbsp; &nbsp;26&nbsp; &nbsp; &nbsp;224<br />
+        Processing:&nbsp; &nbsp; 54&nbsp; 666 206.8&nbsp; &nbsp; 683&nbsp; &nbsp; 1303<br />
+        Waiting:&nbsp; &nbsp; &nbsp; &nbsp;46&nbsp; 660 206.9&nbsp; &nbsp; 675&nbsp; &nbsp; 1302<br />
+        Total:&nbsp; &nbsp; &nbsp; &nbsp; 119&nbsp; 705 223.2&nbsp; &nbsp; 712&nbsp; &nbsp; 1434<br />
+        <br />
+        Percentage of the requests served within a certain time (ms)<br />
+        &nbsp; 50%&nbsp; &nbsp; 712<br />
+        &nbsp; 66%&nbsp; &nbsp; 794<br />
+        &nbsp; 75%&nbsp; &nbsp; 829<br />
+        &nbsp; 80%&nbsp; &nbsp; 849<br />
+        &nbsp; 90%&nbsp; &nbsp; 935<br />
+        &nbsp; 95%&nbsp; &nbsp;1100<br />
+        &nbsp; 98%&nbsp; &nbsp;1348<br />
+        &nbsp; 99%&nbsp; &nbsp;1397<br />
+        &nbsp;100%&nbsp; &nbsp;1434 (longest request)</p>
+        <p>&nbsp;</p>
+        <p>...and with S**pee**do reading published json files instead:</p>
+        <p>Server Software:&nbsp; &nbsp; &nbsp; &nbsp; Kestrel<br />
+        Server Hostname:&nbsp; &nbsp; &nbsp; &nbsp; www.speedo.localhost<br />
+        Server Port:&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 443<br />
+        SSL/TLS Protocol:&nbsp; &nbsp; &nbsp; &nbsp;TLSv1.2,ECDHE-RSA-AES256-GCM-SHA384,2048,256<br />
+        Server Temp Key:&nbsp; &nbsp; &nbsp; &nbsp; X25519 253 bits<br />
+        TLS Server Name:&nbsp; &nbsp; &nbsp; &nbsp; www.speedo.localhost<br />
+        Document Path:&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; /<br />
+        Document Length:&nbsp; &nbsp; &nbsp; &nbsp; 2487 bytes<br />
+        <br />
+        Concurrency Level:&nbsp; &nbsp; &nbsp; 100<br />
+        Time taken for tests:&nbsp; &nbsp;2.998 seconds<br />
+        Complete requests:&nbsp; &nbsp; &nbsp; 1000<br />
+        Failed requests:&nbsp; &nbsp; &nbsp; &nbsp; 0<br />
+        Non-2xx responses:&nbsp; &nbsp; &nbsp; 1000<br />
+        Total transferred:&nbsp; &nbsp; &nbsp; 2605000 bytes<br />
+        HTML transferred:&nbsp; &nbsp; &nbsp; &nbsp;2487000 bytes<br />
+        Requests per second:&nbsp; &nbsp; 333.59 [#/sec] (mean)<br />
+        Time per request:&nbsp; &nbsp; &nbsp; &nbsp;299.769 [ms] (mean)<br />
+        Time per request:&nbsp; &nbsp; &nbsp; &nbsp;2.998 [ms] (mean, across all concurrent requests)<br />
+        Transfer rate:&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 848.63 [Kbytes/sec] received<br />
+        <br />
+        Connection Times (ms)<br />
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; min&nbsp; mean[+/-sd] median&nbsp; &nbsp;max<br />
+        Connect:&nbsp; &nbsp; &nbsp; &nbsp; 6&nbsp; 248&nbsp; 62.0&nbsp; &nbsp; 266&nbsp; &nbsp; &nbsp;337<br />
+        Processing:&nbsp; &nbsp; &nbsp;7&nbsp; &nbsp;30&nbsp; 23.6&nbsp; &nbsp; &nbsp;22&nbsp; &nbsp; &nbsp;166<br />
+        Waiting:&nbsp; &nbsp; &nbsp; &nbsp; 5&nbsp; &nbsp;24&nbsp; 20.6&nbsp; &nbsp; &nbsp;17&nbsp; &nbsp; &nbsp;158<br />
+        Total:&nbsp; &nbsp; &nbsp; &nbsp; 114&nbsp; 278&nbsp; 44.1&nbsp; &nbsp; 287&nbsp; &nbsp; &nbsp;361<br />
+        <br />
+        Percentage of the requests served within a certain time (ms)<br />
+        &nbsp; 50%&nbsp; &nbsp; 287<br />
+        &nbsp; 66%&nbsp; &nbsp; 300<br />
+        &nbsp; 75%&nbsp; &nbsp; 308<br />
+        &nbsp; 80%&nbsp; &nbsp; 311<br />
+        &nbsp; 90%&nbsp; &nbsp; 325<br />
+        &nbsp; 95%&nbsp; &nbsp; 333<br />
+        &nbsp; 98%&nbsp; &nbsp; 340<br />
+        &nbsp; 99%&nbsp; &nbsp; 344<br />
+        &nbsp;100%&nbsp; &nbsp; 361 (longest request)</p>
+        <div>&nbsp;</div>
+        <p><strong>Installation instructions</strong><br />
+        <br />
+        ⟹ To preview our work, please follow these steps<br />
+        <br />
+        1. Make sure to place your license file in `.\license` **AND** `.\docker\License` (The starter kit seems not to handle this correctly)<br />
+        2. Start docker environment using `.\Start-Hackathon.ps1`<br />
+        3. **Build solution!** (normally the Docker build of the solution should handle this but the starter kit structure seems to not work as expected)<br />
+        4. Run `dotnet tool restore`<br />
+        5. Run `dotnet sitecore login --authority https://id.speedo.localhost --cm https://cm.speedo.localhost --allow-write true`<br />
+        6. Run `dotnet sitecore ser push`<br />
+        7. Run `dotnet sitecore publish -p /sitecore/content/SpeedoDemo`</p>
+        <div>Now you can visit [https://www.speedo.localhost/](https://www.speedo.localhost/) that gets content from the file system instead of doing http requests to the layout service.<br />
+        <div>&nbsp;</div>
+        </div>
+        <p><strong></strong></p>
         <p>&nbsp;</p>
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "41329541-dd5b-4f98-9c29-40c2d0563316"
+      Value: "a186a6fb-f0ad-4f47-a421-53e6ecf2b413"
     - ID: "a154d411-a5f8-44a9-9e5c-8938fc57a35f"
       Hint: Author
       Value: Anonymous Sitecoreholics
     - ID: "aab30688-ad7b-42cf-b1df-4a59bb7e1242"
       Hint: Image
       Value: |
-        <image mediaid="{D918D3AB-436A-4CF7-8627-843A59959209}" />
+        <image mediaid="{93753D51-9AE2-4331-98FB-9ED083BA42C9}" />
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
@@ -35,4 +146,4 @@ Languages:
       Value: About
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210306T200458Z
+      Value: 20210307T004342Z

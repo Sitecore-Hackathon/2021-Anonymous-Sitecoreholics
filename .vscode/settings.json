@@ -1,4 +1,4 @@
-﻿{
+{
   "files.associations": {
     "*.sicpackage": "json"
   },
@@ -15,5 +15,9 @@
       "fileMatch": ["*.module.json"],
       "url": "./.sitecore/schemas/ModuleFile.schema.json"
     }
+  ],
+  "cSpell.words": [
+    "Hackathon",
+    "Sitecoreholics"
   ]
 }

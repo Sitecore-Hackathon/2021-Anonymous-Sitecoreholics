@@ -58,18 +58,8 @@ namespace Speedo.Project.SpeedoDemo.Rendering
 
             // Register the Sitecore Layout Service Client, which will be invoked by the Sitecore Rendering Engine.
             services.AddSitecoreLayoutService()
-                // Set default parameters for the Layout Service Client from our bound configuration object.
-                .WithDefaultRequestOptions(request =>
-                {
-                    request
-                        .SiteName(SitecoreConfiguration.DefaultSiteName)
-                        .ApiKey(SitecoreConfiguration.ApiKey);
-                })
-                /*
-                 .AddSpeedoHandler("default", Configuration)
-                 .WithDiskPersistency()
-                 */
-                .AddHttpHandler("default", SitecoreConfiguration.LayoutServiceUri)
+                .AddSpeedoHandler("default", Configuration)
+                .WithDiskPersistency()
                 .AsDefaultHandler();
 
             // Register the Sitecore Rendering Engine services.
@@ -136,7 +126,7 @@ namespace Speedo.Project.SpeedoDemo.Rendering
             app.UseRequestLocalization(options =>
             {
                 // If you add languages in Sitecore which this site / Rendering Host should support, add them here.
-                var supportedCultures = new List<CultureInfo> { new CultureInfo(_defaultLanguage) };
+                var supportedCultures = new List<CultureInfo> { new CultureInfo(_defaultLanguage), new CultureInfo("da") };
                 options.DefaultRequestCulture = new RequestCulture(_defaultLanguage, _defaultLanguage);
                 options.SupportedCultures = supportedCultures;
                 options.SupportedUICultures = supportedCultures;
@@ -149,11 +139,11 @@ namespace Speedo.Project.SpeedoDemo.Rendering
             app.UseSitecoreVisitorIdentification();
 
             // Configure app to use Speedo for static assets
-            /*app.UseFileServer(new FileServerOptions
+            app.UseFileServer(new FileServerOptions
             {
                 FileProvider = new PhysicalFileProvider(SpeedoConfiguration.MediaLibraryFilePath),
                 RequestPath = new PathString(SpeedoConfiguration.MediaLibraryPath)
-            });*/
+            });
 
             app.UseEndpoints(endpoints =>
             {

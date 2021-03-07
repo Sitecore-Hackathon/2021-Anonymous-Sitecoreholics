@@ -22,10 +22,12 @@ namespace Speedo.Feature.SitecorePublisher.Storage.Configuration
                 return null;
             }
 
-            var path = XmlUtil.GetAttribute("path", node, string.Empty).ToLowerInvariant();
+            var media = XmlUtil.GetAttribute("media", node, string.Empty).ToLowerInvariant();
             var site = XmlUtil.GetAttribute("site", node, string.Empty).ToLowerInvariant();
+            var apiKey = XmlUtil.GetAttribute("apiKey", node, string.Empty).ToLowerInvariant();
+            var output = XmlUtil.GetAttribute("output", node, string.Empty).ToLowerInvariant();
 
-            return new StorageSource(path, site);
+            return new StorageSource(media, site, apiKey, output);
         }
     }
 }

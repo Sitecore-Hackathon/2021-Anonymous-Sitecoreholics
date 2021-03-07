@@ -1,9 +1,9 @@
-﻿using System;
-using System.IO;
-using System.Threading.Tasks;
-using Microsoft.Extensions.Logging;
+﻿using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Speedo.Foundation.RequestHandler.Rendering.Options;
+using System;
+using System.IO;
+using System.Threading.Tasks;
 
 namespace Speedo.Foundation.RequestHandler.Rendering.Persistance
 {

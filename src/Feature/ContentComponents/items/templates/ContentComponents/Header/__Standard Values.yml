@@ -22,16 +22,10 @@ Languages:
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
       Value: "1ffdcaae-bb65-410c-944e-8c7dab48f8d4"
-    - ID: "a0fa34b0-90ca-48a5-81ec-ec0e95eca7ea"
-      Hint: Title
-      Value: $name
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\Admin
-    - ID: "d8a7144c-d65a-4256-bdcd-619b825695dd"
-      Hint: MenuHeader
-      Value: Menu
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
       Value: 20210306T193216Z

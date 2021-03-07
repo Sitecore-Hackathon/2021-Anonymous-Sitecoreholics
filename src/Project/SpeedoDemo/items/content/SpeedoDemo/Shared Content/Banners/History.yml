@@ -4,6 +4,54 @@ Parent: "161821d9-1d70-4cf7-aa6e-767235edb932"
 Template: "2b9add3d-ef00-4acd-b7b4-fd99797c0a95"
 Path: /sitecore/content/SpeedoDemo/Shared Content/Banners/History
 Languages:
+- Language: da
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "1e1b8d0d-15c6-44fa-9a46-40be877db011"
+      Hint: NavigationLink
+      Value: |
+        <link linktype="internal" />
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210306T215054Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\Admin
+    - ID: "5c87ea76-9308-4add-b42f-18c8049bd025"
+      Hint: Style
+      Value: post style1
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+    - ID: "6e09ce12-f8ec-4bdc-a0e4-976fa54824fb"
+      Hint: Author
+      Value: Anonymous Sitecoreholics
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "e6986402-6f0d-4a11-a6ab-7547229f1978"
+    - ID: "8f302545-a18c-49ff-aa5b-009a63c76de8"
+      Hint: Title
+      Value: Historie
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "c07e6424-1663-4f7e-ab9d-618627df373a"
+      Hint: Image
+      Value: |
+        <image mediaid="{B8527688-A9A2-41CB-8881-3490E5028E60}" />
+    - ID: "d657be3b-952a-431f-b681-ef539477b2d5"
+      Hint: Text
+      Value: "Har du nogensinde overvejet historien bag farhumor? Er du nysgerrig omkring udviklingen indenfor farhumor?"
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210306T215211Z
+    - ID: "edde273a-a012-4501-803e-b1d82234c6c4"
+      Hint: NavigationLinkText
+      Value: Læs mere
 - Language: en
   Versions:
   - Version: 1

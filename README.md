@@ -37,7 +37,92 @@ Our project is called S**pee**do - it's an abbreviation for Sitecore Poor man's 
 
 Testing the performance win on a small sample site with few components will not reveal the full potential of uplift but yes, it's faster for sure.
 
-[TODO: Insert performance test results]
+Rendering Host doing http requests to the layout service:
+
+```text
+Server Software:        Kestrel
+Server Hostname:        www.speedo.localhost
+Server Port:            443
+SSL/TLS Protocol:       TLSv1.2,ECDHE-RSA-AES256-GCM-SHA384,2048,256
+Server Temp Key:        X25519 253 bits
+TLS Server Name:        www.speedo.localhost
+Document Path:          /
+Document Length:        4238 bytes
+
+Concurrency Level:      100
+Time taken for tests:   7.307 seconds
+Complete requests:      1000
+Failed requests:        0
+Total transferred:      4351000 bytes
+HTML transferred:       4238000 bytes
+Requests per second:    136.86 [#/sec] (mean)
+Time per request:       730.687 [ms] (mean)
+Time per request:       7.307 [ms] (mean, across all concurrent requests)
+Transfer rate:          581.51 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        4   39  37.3     26     224
+Processing:    54  666 206.8    683    1303
+Waiting:       46  660 206.9    675    1302
+Total:        119  705 223.2    712    1434
+
+Percentage of the requests served within a certain time (ms)
+  50%    712
+  66%    794
+  75%    829
+  80%    849
+  90%    935
+  95%   1100
+  98%   1348
+  99%   1397
+ 100%   1434 (longest request)
+```
+
+...and with S**pee**do reading published json files instead:
+
+```text
+Server Software:        Kestrel
+Server Hostname:        www.speedo.localhost
+Server Port:            443
+SSL/TLS Protocol:       TLSv1.2,ECDHE-RSA-AES256-GCM-SHA384,2048,256
+Server Temp Key:        X25519 253 bits
+TLS Server Name:        www.speedo.localhost
+Document Path:          /
+Document Length:        2487 bytes
+
+Concurrency Level:      100
+Time taken for tests:   2.998 seconds
+Complete requests:      1000
+Failed requests:        0
+Non-2xx responses:      1000
+Total transferred:      2605000 bytes
+HTML transferred:       2487000 bytes
+Requests per second:    333.59 [#/sec] (mean)
+Time per request:       299.769 [ms] (mean)
+Time per request:       2.998 [ms] (mean, across all concurrent requests)
+Transfer rate:          848.63 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        6  248  62.0    266     337
+Processing:     7   30  23.6     22     166
+Waiting:        5   24  20.6     17     158
+Total:        114  278  44.1    287     361
+
+Percentage of the requests served within a certain time (ms)
+  50%    287
+  66%    300
+  75%    308
+  80%    311
+  90%    325
+  95%    333
+  98%    340
+  99%    344
+ 100%    361 (longest request)
+```
+
+Conclusion, S**pee**do is at least twice as fast :-)
 
 ## Video link
 

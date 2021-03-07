@@ -27,7 +27,7 @@ SharedFields:
   Value: "{3DF775BF-3F56-446F-9D81-43DE64DA4DDA}"
 - ID: "b5b27af1-25ef-405c-87ce-369b3a004016"
   Hint: Datasource Location
-  Value: /sitecore/content/SpeedoDemo/Shared Content/Banners
+  Value: /sitecore/content/SpeedoDemo/Shared Content/Banners/TestBanners
 Languages:
 - Language: en
   Versions:
@@ -38,11 +38,11 @@ Languages:
       Value: 20210306T125837Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "2c091f8f-6513-4f88-8575-45d96e239851"
+      Value: "7c86ffed-62c6-4d4a-b7c6-43019e399e30"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210306T163921Z
+      Value: 20210306T235251Z

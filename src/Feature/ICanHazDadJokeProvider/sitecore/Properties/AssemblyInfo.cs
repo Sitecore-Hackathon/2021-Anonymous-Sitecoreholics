@@ -4,11 +4,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Speedo.Feature.SitecorePublisher")]
+[assembly: AssemblyTitle("Speedo.Feature.ICanHazDadJokeProvider")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Speedo.Feature.SitecorePublisher")]
+[assembly: AssemblyProduct("Speedo.Feature.ICanHazDadJokeProvider")]
 [assembly: AssemblyCopyright("Copyright ©  2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

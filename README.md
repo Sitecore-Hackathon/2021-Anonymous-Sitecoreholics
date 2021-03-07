@@ -57,7 +57,7 @@ Testing the performance win on a small sample site with few components will not 
 1. Run `dotnet sitecore ser push`
 1. Run `dotnet sitecore publish -p /sitecore/content/SpeedoDemo`
 
-Now you can visit https://www.speedo.localhost/
+Now you can visit [https://www.speedo.localhost/](https://www.speedo.localhost/) that gets content from the file system instead of doing http requests to the layout service.
 
 ### Configuration
 

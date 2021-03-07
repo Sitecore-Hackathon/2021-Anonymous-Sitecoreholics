@@ -65,7 +65,7 @@ Now you can visit [https://www.speedo.localhost/](https://www.speedo.localhost/)
 
 ## Usage instructions
 
-⟹ Did you want to use S**pee**do in your own solution. Here's what you need to know...
+⟹ **ONLY IF YOU WANT TO USE** use S**pee**do in your **own** solution. Here's what you need to know...
 
 ### Setting the File System
 

@@ -58,18 +58,8 @@ namespace Speedo.Project.SpeedoDemo.Rendering
 
             // Register the Sitecore Layout Service Client, which will be invoked by the Sitecore Rendering Engine.
             services.AddSitecoreLayoutService()
-                // Set default parameters for the Layout Service Client from our bound configuration object.
-                .WithDefaultRequestOptions(request =>
-                {
-                    request
-                        .SiteName(SitecoreConfiguration.DefaultSiteName)
-                        .ApiKey(SitecoreConfiguration.ApiKey);
-                })
-                
-                 .AddSpeedoHandler("default", Configuration)
-                 .WithDiskPersistency()
-                
-                //.AddHttpHandler("default", SitecoreConfiguration.LayoutServiceUri)
+                .AddSpeedoHandler("default", Configuration)
+                .WithDiskPersistency()
                 .AsDefaultHandler();
 
             // Register the Sitecore Rendering Engine services.

@@ -49,10 +49,15 @@ Testing the performance win on a small sample site with few components will not 
 
 ⟹ To preview our work, please follow these steps
 
+1. Make sure to place your license file in `.\license` **AND** `.\docker\License` (The starter kit seems not to handle this correctly)
 1. Start docker environment using `.\Start-Hackathon.ps1`
-1. Build solution
-1. Run dotnet tool restore
-1. Run dotnet sitecore ser push --publish
+1. Build solution! (normally the Docker build of the solution should handle this but the starter kit structure seems to not work as expected)
+1. Run `dotnet tool restore`
+1. Run `dotnet sitecore login --authority https://id.speedo.localhost --cm https://cm.speedo.localhost --allow-write true`
+1. Run `dotnet sitecore ser push`
+1. Run `dotnet sitecore publish -p /sitecore/content/SpeedoDemo`
+
+Now you can visit https://www.speedo.localhost/
 
 ### Configuration
 

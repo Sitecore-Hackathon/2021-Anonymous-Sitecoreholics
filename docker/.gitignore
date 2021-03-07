@@ -6,8 +6,12 @@
 !/data/mssql/.gitkeep
 /data/solr/*
 !/data/solr/.gitkeep
-/data/speedo/*
-!/data/speedo/.gitkeep
+
+/data/speedo/speedo/content/*
+!/data/speedo/speedo/content/.gitkeep
+
+/data/speedo/speedo/media/*
+!/data/speedo/speedo/media/.gitkeep
 
 /deploy/platform/*
 !/deploy/platform/.gitkeep
